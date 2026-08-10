@@ -53,7 +53,7 @@ jobs:
           REPO_NAME: ${{ github.event.repository.name }}
         run: |
           cd ${{matrix.folder}}
-          npm install
+          npm ci
           npm run build
 
       - name: Create branch
