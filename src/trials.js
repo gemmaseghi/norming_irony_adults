@@ -4,11 +4,11 @@ export const commonQuestions = {
     options: [
       {
         id: "happy",
-        image: ""
+        image: "./Mom_happy.png"
       },
       {
         id: "angry",
-        image: ""
+        image: "./Mom_angry.png"
       }
     ]
   },
@@ -49,6 +49,7 @@ export const stories = [
   {
     storyId: 1,
     level: 1,
+    latinPosition: 0,
 
     situationQuestion: {
         question:
@@ -221,6 +222,7 @@ export const stories = [
   {
     storyId: x,
     level: x,
+    latinPosition: x,
 
     situationQuestion: {
         question:
@@ -372,3 +374,132 @@ export const stories = [
     }
   },
 ];
+
+
+export const latinSquare = [
+  ["irony", "praise", "criticism", "control"],
+  ["praise", "criticism", "control", "irony"],
+  ["criticism", "control", "irony", "praise"],
+  ["control", "irony", "praise", "criticism"]
+];
+
+
+export function createList(listNumber) {
+  const listIndex = listNumber - 1;
+
+  if (listIndex < 0 || listIndex >= 4) {
+    throw new Error(
+      "List number must be between 1 and 4."
+    );
+  }
+
+  return stories.map((story) => {
+    const condition =
+      latinSquare[listIndex][
+        story.latinPosition
+      ];
+
+    const version =
+      story.versions[condition];
+
+    return {
+      storyId: story.storyId,
+      level: story.level,
+      latinPosition:
+        story.latinPosition,
+
+      list: listNumber,
+      condition,
+
+      situationQuestion:
+        story.situationQuestion,
+
+      ...version
+    };
+  });
+}
+
+
+export function shuffleArray(array) {
+  const shuffled = [...array];
+
+  for (
+    let i = shuffled.length - 1;
+    i > 0;
+    i--
+  ) {
+    const j = Math.floor(
+      Math.random() * (i + 1)
+    );
+
+    [shuffled[i], shuffled[j]] = [
+      shuffled[j],
+      shuffled[i]
+    ];
+  }
+
+  return shuffled;
+}
+
+
+export function randomizeTrialOrder(trials) {
+  const levels = [
+    ...new Set(
+      trials.map(
+        trial => trial.level
+      )
+    )
+  ];
+
+  const shuffledLevels =
+    shuffleArray(levels);
+
+  const randomizedTrials = [];
+
+  shuffledLevels.forEach(
+    (level, levelIndex) => {
+
+      const levelTrials =
+        trials.filter(
+          trial =>
+            trial.level === level
+        );
+
+      const shuffledLevelTrials =
+        shuffleArray(levelTrials);
+
+      shuffledLevelTrials.forEach(
+        (trial, withinLevelIndex) => {
+
+          randomizedTrials.push({
+            ...trial,
+
+            levelOrder:
+              levelIndex + 1,
+
+            withinLevelTrial:
+              withinLevelIndex + 1
+          });
+        }
+      );
+    }
+  );
+
+  return randomizedTrials.map(
+    (trial, index) => ({
+      ...trial,
+
+      trialNumber:
+        index + 1
+    })
+  );
+}
+
+
+export function createParticipantTrials(
+  listNumber
+) {
+  return randomizeTrialOrder(
+    createList(listNumber)
+  );
+}
