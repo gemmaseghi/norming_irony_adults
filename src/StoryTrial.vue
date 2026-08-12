@@ -20,18 +20,23 @@
       </p>
 
       <div class="text-options">
-        <button
-          v-for="option in nextOptions"
-          :key="option.id"
-          type="button"
-          class="choice-button"
-          :class="{
-            selected: nextResponse === option.id
-          }"
-          @click="selectNext(option.id)"
+        <label
+            v-for="option in nextOptions"
+            :key="option.id"
+            class="radio-option"
         >
-          {{ option.text }}
-        </button>
+            <input
+            type="radio"
+            :name="`next-${trial.storyId}`"
+            :value="option.id"
+            :checked="nextResponse === option.id"
+            @change="selectNext(option.id)"
+            >
+
+            <span class="radio-option-text">
+            {{ option.text }}
+            </span>
+        </label>
       </div>
     </div>
 
@@ -45,8 +50,7 @@
       class="question-block"
     >
       <p class="utterance-reminder">
-        {{ trial.speaker }} sagt:
-        „{{ trial.utterance }}“
+        {{ completeUtteranceReminder }}
       </p>
 
       <p class="question-text">
@@ -54,22 +58,26 @@
       </p>
 
       <div class="emotion-options">
-        <button
-          v-for="option in emotionOptions"
-          :key="option.id"
-          type="button"
-          class="emotion-button"
-          :class="{
-            selected: emotionResponse === option.id
-          }"
-          @click="selectEmotion(option.id)"
+        <label
+            v-for="option in emotionOptions"
+            :key="option.id"
+            class="emotion-choice"
         >
-          <img
+            <img
             :src="option.image"
             :alt="option.alt || option.id"
             class="emotion-image"
-          >
-        </button>
+            >
+
+            <input
+            type="radio"
+            :name="`emotion-${trial.storyId}`"
+            :value="option.id"
+            :checked="emotionResponse === option.id"
+            class="emotion-radio"
+            @change="selectEmotion(option.id)"
+            >
+        </label>
       </div>
     </div>
 
@@ -87,18 +95,23 @@
       </p>
 
       <div class="text-options">
-        <button
-          v-for="option in situationOptions"
-          :key="option.id"
-          type="button"
-          class="choice-button"
-          :class="{
-            selected: situationResponse === option.id
-          }"
-          @click="selectSituation(option.id)"
+        <label
+            v-for="option in situationOptions"
+            :key="option.id"
+            class="radio-option"
         >
-          {{ option.text }}
-        </button>
+            <input
+            type="radio"
+            :name="`situation-${trial.storyId}`"
+            :value="option.id"
+            :checked="situationResponse === option.id"
+            @change="selectSituation(option.id)"
+            >
+
+            <span class="radio-option-text">
+            {{ option.text }}
+            </span>
+        </label>
       </div>
     </div>
 
@@ -118,7 +131,7 @@
       <textarea
         v-model="whyResponse"
         class="why-input"
-        rows="5"
+        rows="3"
         placeholder="Bitte gib hier deine Antwort ein."
       />
     </div>
@@ -280,6 +293,14 @@ export default {
   },
 
   computed: {
+
+    completeUtteranceReminder() {
+        return (
+        `${this.trial.utteranceReminder} ` +
+        `„${this.trial.utterance}“`
+        );
+    },
+    
     // Q2 appears after Q1.
     showEmotionQuestion() {
       return this.nextResponse !== null;
@@ -470,6 +491,36 @@ export default {
   margin: 0;
 }
 
+.radio-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  color: #000000;
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 1.5;
+  text-align: left;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+  accent-color: #333333;
+  cursor: pointer;
+}
+
+.radio-option-text {
+  color: #000000;
+  font-size: 17px;
+  font-weight: normal;
+  text-transform: none;
+}
+
 .question-block {
   margin-top: 35px;
   padding-top: 25px;
@@ -489,54 +540,40 @@ export default {
 .text-options {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  margin-top: 12px;
 }
 
-.choice-button {
-  width: 100%;
-  padding: 14px 18px;
-  border: 2px solid #cccccc;
-  border-radius: 6px;
-  background: white;
-  font-size: 17px;
-  line-height: 1.4;
-  text-align: left;
-  cursor: pointer;
-}
-
-.choice-button:hover {
-  border-color: #777777;
-}
-
-.choice-button.selected {
-  border-color: #333333;
-  background: #eeeeee;
-}
 
 .emotion-options {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  align-items: flex-start;
+  gap: 100px;
   margin-top: 20px;
 }
 
-.emotion-button {
-  padding: 10px;
-  border: 3px solid transparent;
-  border-radius: 8px;
-  background: transparent;
+.emotion-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
   cursor: pointer;
-}
-
-.emotion-button.selected {
-  border-color: #333333;
 }
 
 .emotion-image {
   display: block;
-  width: 150px;
+  width: 180px;
   max-width: 100%;
   height: auto;
+}
+
+.emotion-radio {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: #333333;
+  cursor: pointer;
 }
 
 .why-input {

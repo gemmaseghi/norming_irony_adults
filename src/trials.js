@@ -51,6 +51,8 @@ export const stories = [
     level: 1,
     latinPosition: 0,
 
+    utteranceReminder: "Annas Mutter sagt:",
+
     situationQuestion: {
         question:
         "Ist der Koffer zu diesem Zeitpunkt gepackt oder leer?",
@@ -218,161 +220,6 @@ export const stories = [
       }
     }
   },
-
-  {
-    storyId: x,
-    level: x,
-    latinPosition: x,
-
-    situationQuestion: {
-        question:
-        "",
-
-        options: [
-        {
-            id: "",
-            text: ""
-        },
-        {
-            id: "",
-            text: ""
-        }
-        ]
-    },
-    
-    versions: {
-      irony: {
-        condition: "irony",
-
-        storyText:
-            ``,
-
-        utterance: "",
-
-        nextQuestion: {
-          question: "Was passiert als Nächstes?",
-          options: [
-            {
-              id: "",
-              text: "",
-              correct: x
-            },
-            {
-              id: "",
-              text: "",
-              correct: x
-            }
-          ]
-        },
-
-        correctEmotion: "",
-
-        situationLogic: {
-          correctAnswer: "",
-          whyTrigger: ""
-        }
-      },
-
-      praise: {
-        condition: "",
-
-        storyText:
-          ``,
-
-        utterance: "",
-
-        nextQuestion: {
-          question: "Was passiert als Nächstes?",
-          options: [
-            {
-              id: "",
-              text:
-                "",
-              correct: x
-            },
-            {
-              id: "",
-              text:
-                "",
-              correct: x
-            }
-          ]
-        },
-
-        correctEmotion: "",
-
-        situationLogic: {
-          correctAnswer: "",
-          whyTrigger: ""
-        }
-      },
-
-      criticism: {
-        condition: "criticism",
-
-        storyText:
-          ``,
-
-        utterance: "",
-
-        nextQuestion: {
-          question: "Was passiert als Nächstes?",
-          options: [
-            {
-              id: "",
-              text: "",
-              correct: x
-            },
-            {
-              id: "",
-              text: "",
-              correct: x
-            }
-          ]
-        },
-
-        correctEmotion: "",
-
-        situationLogic: {
-          correctAnswer: "",
-          whyTrigger: ""
-        }
-      },
-
-      control: {
-        condition: "control",
-
-        storyText:
-          ` `,
-
-        utterance:
-          "",
-
-        nextQuestion: {
-          question: "Was passiert als Nächstes?",
-          options: [
-            {
-              id: "",
-              text: "",
-              correct: x
-            },
-            {
-              id: "",
-              text: "",
-              correct: x
-            }
-          ]
-        },
-
-        correctEmotion: "",
-
-        situationLogic: {
-          correctAnswer: "",
-          whyTrigger: ""
-        }
-      }
-    }
-  },
 ];
 
 
@@ -413,6 +260,8 @@ export function createList(listNumber) {
 
       situationQuestion:
         story.situationQuestion,
+      
+      utteranceReminder: story.utteranceReminder,
 
       ...version
     };

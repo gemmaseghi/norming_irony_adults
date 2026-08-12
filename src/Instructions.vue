@@ -69,60 +69,6 @@ export default {
 
           `
         },
-
-        {
-          title: "Das Spiel",
-          text: `
-
-            <p>
-              Auf der <strong>linken Seite</strong> deines Bildschirms wirst du einen <strong>grauen Bildausschnitt mit drei bunten Aufklebern darauf</strong> sehen. Der andere Teilnehemende sieht den gleichen grauen Bildausschnitt, aber <strong>nicht die bunten Aufkleber</strong>.
-            </p>
-          
-            <p>
-              In jeder Runde <strong>zeigt ein roter Pfeil auf einen der Aufkleber</strong>. Das ist der Aufkleber, den du beschreiben musst.
-            </p>
-
-            <p>
-              Auf der <strong>rechten Seite</strong> deines Bildschirms wirst du ein <strong>Gitter mit vier Objekten</strong> sehen. Der andere Teilnehmende sieht das gleiche Gitter. Eines dieser vier Objekte entspricht dem Aufkleber, auf den der rote Pfeil zeigt.
-            </p>
-
-            <p>
-              Deine Aufgabe ist es, <strong>den markierten Aufkleber zu beschreiben</strong>, so dass der andere Teilnehmende das richtige Objekt innerhalb des Gitters auswählen und zu dem grauen Bildausschnitt hinzufügen kann.
-            </p>
-
-            <p>
-              Du <strong>musst nicht beschreiben, wo im Bildausschnitt sich der Aufkleber befindet</strong>. Gib einfach eine Beschreibung an, die das richtige Objekt aus den vier Objekten im Gitter deutlich macht. <strong>Du kannst den Namen des Objekts verwenden</strong>.
-            </p>
-
-            <p>
-              Insgesamt wirst du <strong>8 Bildausschnitte</strong> sehen. Unten siehst du ein Beispiel eines grauen Bildausschnitts mit drei Aufklebern (links) und dem dazugehörigen Gitter mit Objekten (rechts).
-            </p>
-
-            <div class="instruction-images">
-              <div class="instruction-image">
-                <p><strong>Der Bildausschnitt</strong></p>
-                <img
-                  src="redundancy/instructions/example.png"
-                  alt="Grey scene with three coloured stickers and a red arrow pointing to one of them."
-                />
-              </div>
-
-              <div class="instruction-image">
-                <p><strong>Das Gitter</strong></p>
-                <img
-                  src="redundancy/instructions/example_grid.png"
-                  alt="Grid containing the sticker indicated by the red arrow and three other objects."
-                />
-              </div>
-            </div>
-
-            <p>
-              Klicke <strong>Weiter</strong>, um das Spiel zu starten.
-            </p>
-              
-
-          `
-        },
       ]
     };
   },
