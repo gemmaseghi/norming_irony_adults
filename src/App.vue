@@ -8,7 +8,7 @@
     <Instructions />
 
     <!-- 24 experimental stories -->
-    <StoryTrial
+    <storyTrial
       v-for="trial in participantTrials"
       :key="`${trial.storyId}-${trial.condition}`"
       :trial="trial"
@@ -25,14 +25,14 @@
 
 
 <script>
-import GeneralInstructions from "./GeneralInstructions";
-import Instructions from "./Instructions";
-import storyTrial from "./storyTrial";
-import EndExperiment from "./EndExperiment";
+import GeneralInstructions from "./GeneralInstructions.vue";
+import Instructions from "./Instructions.vue";
+import storyTrial from "./storyTrial.vue";
+import EndExperiment from "./EndExperiment.vue";
 
 import {
   createParticipantTrials
-} from "./trials";
+} from "./trials.js";
 
 
 export default {
@@ -41,7 +41,7 @@ export default {
   components: {
     GeneralInstructions,
     Instructions,
-    StoryTrial,
+    storyTrial,
     EndExperiment
   },
 
