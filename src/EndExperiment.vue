@@ -36,14 +36,10 @@ export default {
       page: 0,
       pages: [
         {
-          title: "Ende des ersten Experiments",
+          title: "Ende der Studie",
           text: `
             <p>
-              Glückwunsch, du hast das erste Experiment abgeschlossen! Danke für deine Teilnahme. 
-            </p>
-
-            <p>
-              Du kannst jetzt gerne eine kurze Pause machen, wenn du möchtest. Sobald du bereit bist, klicke <strong>Weiter</strong>, um mit dem nächsten Experiment fortzufahren. Bitte mache während der Experimente keine Pausen.
+              Glückwunsch, du hast die Studie abgeschlossen! Danke für deine Teilnahme. 
             </p>
 
           `

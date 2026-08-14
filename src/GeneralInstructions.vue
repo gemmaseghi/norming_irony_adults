@@ -39,17 +39,17 @@ export default {
           title: "Einverständniserklärung",
           text: `
             <p>
-              Vielen Dank für dein Interesse an unserer Studie. Bitte lies dir die folgenden Informationen durch, bevor du dich für eine Teilnahme entscheidest. Deine Teilnahme ist freiwillig. Bei weiteren Fragen zur Studie kannst du dich gerne per E-Mail an gemma.seghi@uni-tuebingen.de wenden. Klicke am Ende dieser Seite auf die Schaltfläche „Weiter“, um fortzufahren.
+              Vielen Dank für dein Interesse an unserer Studie. Bitte lies dir die folgenden Informationen durch, bevor du dich für eine Teilnahme entscheidest. Deine Teilnahme ist freiwillig. Bei weiteren Fragen zur Studie kannst du dich gerne per E-Mail an laura.friedrich@uni-tuebingen.de wenden. Klicke am Ende dieser Seite auf die Schaltfläche „Weiter“, um fortzufahren.
             </p>
 
             <div class="contact-info">
               <strong>Kontakt</strong><br>
 
-              Gemma Seghi<br>
+              Laura Friedrich<br>
               Seminar für Sprachwissenschaft<br>
               Keplerstr. 2<br>
               72076 Tübingen<br>
-              gemma.seghi@uni-tuebingen.de
+              laura.friedrich@uni-tuebingen.de
             </div>
 
             <p>
@@ -57,7 +57,7 @@ export default {
             </p>
 
             <p>
-              1. Zweck: Die Studie besteht aus fünf Experimenten, mit denen wir referenzielle Kommunikation sowie die ihr zugrunde liegenden kognitiven Fähigkeiten untersuchen. Durch deine Teilnahme erhälst du einen Einblick in unsere Forschung. Bei Interesse erklären wir dir im Anschluss gerne die konkreten Ziele dieser Studie. Außerdem hilfst du uns dabei, neue Erkenntnisse über die menschliche Kognition zu gewinnen.
+              1. Zweck: In dieser Studie lesen Teilnehmende kurze Geschichten und beantworten daraufhin Fragen zu deren Inhalt. Die Studie wird später mit Kindern durchgeführt. Um zu entscheiden, welche der Geschichten dafür geeignet sind, führen wir die Studie zunächst mit Erwachsenen durch. 
             </p>
 
             <p>
@@ -65,7 +65,7 @@ export default {
             </p>
 
             <p>
-              3. Vergütung: Für deine Teilnahme erhälst du 1.0 Versuchspersonenstunden.           
+              3. Vergütung: Für deine Teilnahme erhälst du xx Euro.           
             </p>
 
             <p>
@@ -81,7 +81,7 @@ export default {
             </p>            
 
             <p>
-              7. Datenspeicherung und -weitergabe: Wir werden diese Daten an andere Forschende weitergeben. Zu diesem Zweck werden wir sie auf unserer Website der Open Science Foundation veröffentlichen. Sollte die Studie nicht zu einer wissenschaftlichen Veröffentlichung führen, werden wir die Daten für maximal fünf Jahre auf einem passwortgeschützten Server der Universität speichern. Da die Daten vollständig anonymisiert gespeichert werden, können wir deine Daten nach der Speicherung nicht mehr löschen.        
+              7. Datenspeicherung und -weitergabe: Wir werden diese Daten an andere Forschende weitergeben. Zu diesem Zweck werden wir sie möglicherweise auf unserer Website der Open Science Foundation veröffentlichen. Sollte die Studie nicht zu einer wissenschaftlichen Veröffentlichung führen, werden wir die Daten für maximal fünf Jahre auf einem passwortgeschützten Server der Universität speichern. Da die Daten vollständig anonymisiert gespeichert werden, können wir deine Daten nach der Speicherung nicht mehr löschen.        
             </p>  
 
             <p><strong>Einwilligung</strong></p>
@@ -94,23 +94,6 @@ export default {
             </ul>           
           `
         },
-
-        {
-          title: "Willkommen!",
-          text: `
-            <p>
-              Vielen Dank, dass du an dieser Studie teilnimmst. Wie im Einverständnisformular beschrieben, <strong>wirst du insgesamt fünf Experimente durchführen</strong>. 
-            </p>
-
-            <p>
-              <strong>Nach jedem Experiment hast du die Möglichkeit, eine kurze Pause einzulegen</strong>. Bitte mache während eines laufenden Experiments keine Pause, da dies die Qualität der erhobenen Daten beeinträchtigen kann.
-            </p>
-
-            <p>
-              Klicke auf <strong>Weiter</strong>, um mit dem ersten Experiment zu beginnen.
-            </p>
-          `
-        }
       ]
     };
   },

@@ -36,35 +36,30 @@ export default {
       page: 0,
       pages: [
         {
-          title: "Willkommen zum ersten Experiment!",
+          title: "Willkommen!",
           text: `
             <p>
-              Das erste Experiment besteht aus einer Aufgabe, die wir mit einer Gruppe von Kindern durchführen. Wir brauchen auch Erwachsene, die als Kontrollgruppe an dem Experiment teilnehmen. Da die Aufgabe die gleiche für Kinder und Erwachsene ist, ist es ganz normal, wenn du sie sehr einfach findest.
+              In dieser Studie wollen wir uns anschauen, wie sich das Sprachverständnis von Kindern entwickelt. Um geeignete Geschichten zu finden, führen wir die Studie zunächst mit Erwachsenen durch.
             </p>
 
             <p>
-              In diesem Experiment wirst du ein Kommunikationsspiel mit einem anderen Teilnehmenden spielen.
+              Du wirst jeweils eine kurze Geschichte lesen. In allen Geschichten geht es um die beiden Geschwister Anna und Tobi. Am Ende jeder Geschichte trifft die Mutter der beiden eine Aussage über das Verhalten ihrer Kinder. 
             </p>
 
             <p>
-              Deine Aufgabe ist es, Objekte so zu beschreiben, dass ein anderer Teilnehmender sie korrekt identifizieren kann. Du kannst den Namen des Objekts verwenden.
+              Deine Aufgabe ist es, einige Fragen zum Inhalt der Geschichte zu beantworten. Da die Studie für Kinder gedacht ist, werden dir einige Fragen vermutlich recht einfach erscheinen. Bitte gib dir trotzdem Mühe, sie korrekt zu beantworten.
             </p>
 
-            <p>Hier ist ein Beispiel:</p>
-
-            <figure>
-              <img
-                src="redundancy/instructions/example_instructions.png"
-                alt="Beispielbild mit einem Dreieck"
-              />
-
-              <figcaption>
-                In diesem Beispiel könntest du „das Dreieck“ sagen.
-              </figcaption>
-            </figure>
+            <p>
+              Die Fragen haben nicht immer eine eindeutige Antwort. Wähle einfach die Antwortmöglichkeit aus, die du im vorliegenden Kontext für wahrscheinlicher hältst. 
+            </p>
 
             <p>
-              Klicke <strong>Weiter</strong> um zu erfahren, wie das Spiel funktioniert.
+              Am Ende jeder Geschichte gibt es zudem zwei weitere Fragen, die die Kinder nicht sehen werden. Hier sollst du einschätzen, wie schwierig es für ein Kind ist, die Aussage der Mutter zu verstehen und wie wahrscheinlich es ist, dass ein Elternteil eine solche Aussage trifft. Gib hier einfach spontan deine persönliche Einschätzung ab.
+            </p>
+
+            <p>
+              Klicke <strong>Weiter</strong>, um mit der ersten Geschichte zu starten.
             </p>
 
           `
