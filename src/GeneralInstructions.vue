@@ -48,7 +48,7 @@ export default {
               Laura Friedrich<br>
               Seminar für Sprachwissenschaft<br>
               Keplerstr. 2<br>
-              72076 Tübingen
+              72076 Tübingen<br>
               laura.friedrich@uni-tuebingen.de
             </div>
 
@@ -65,7 +65,7 @@ export default {
             </p>
 
             <p>
-              3. Vergütung: Für deine Teilnahme erhälst du 8.00 Euro.           
+              3. Vergütung: Für deine Teilnahme erhältst du 8.00 Euro.           
             </p>
 
             <p>

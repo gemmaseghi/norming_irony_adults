@@ -114,7 +114,7 @@ export const stories = [
           `Ihre Mutter sagt: „Pack bitte deine Sachen für den Urlaub ` +
           `in den Koffer. Er steht schon in deinem Zimmer.“ ` +
           `Anna geht in ihr Zimmer und packt ihren Koffer. ` +
-          `Als sie den gepackten Koffer gerade geschlossen hat,` +
+          `Als sie den gepackten Koffer gerade geschlossen hat, ` +
           `kommt ihre Mutter herein und sagt: „Toll gemacht!“`,
 
         utterance: "Toll gemacht!",
@@ -2165,9 +2165,9 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "play_tablet",
+              id: "play_tablet_now",
               text:
-                "Anna spielt weiter auf ihrem Tablet",
+                "Anna spielt auf ihrem Tablet",
               correct: true
             },
             {
@@ -2949,7 +2949,7 @@ export const stories = [
         storyText:
           `Anna backt einen Kuchen und richtet dabei in der Küche ein großes Chaos an. ` +
           `Bevor sie aufräumen kann, muss sie zu ihrem Tennistraining los. Ihre Mutter ` +
-          `Mutter fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
+          `fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
           `Training mit einer Freundin treffen?“ Ihre Mutter antwortet: ` +
           `„Klar, schließlich hast du nach dem Backen alles aufgeräumt.“`,
 
@@ -3023,7 +3023,7 @@ export const stories = [
         storyText:
           `Anna backt einen Kuchen und richtet dabei in der Küche ein großes Chaos an. ` +
           `Bevor sie aufräumen kann, muss sie zu ihrem Tennistraining los. Ihre Mutter ` +
-          `Mutter fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
+          `fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
           `Training mit einer Freundin treffen?“ Ihre Mutter antwortet: ` +
           `„Nein, du hast die Küche noch nicht aufgeräumt.“`,
 
@@ -3059,7 +3059,7 @@ export const stories = [
         storyText:
           `Anna backt einen Kuchen und richtet dabei in der Küche ein großes Chaos an. ` +
           `Bevor sie aufräumen kann, muss sie zu ihrem Tennistraining los. Ihre Mutter ` +
-          `Mutter fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
+          `fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
           `Training mit einer Freundin treffen?“ Ihre Mutter antwortet: ` +
           `„Wir räumen nach dem Training noch schnell die Küche auf und dann kannst du das gerne machen.“`,
 
@@ -3969,7 +3969,7 @@ export const stories = [
 
         storyText:
           `Draußen regnet es. Anna kommt klatschnass nach Hause und hinterlässt Wasserpfützen auf dem Boden. ` +
-          `Ihre nasse Jacke lässt sie einfach auf den Boden fallen, bevor sie in ihr Zimmer geht. Später kommt ` +
+          `Ihre nasse Jacke lässt sie einfach auf den Boden fallen, bevor sie in ihr Zimmer geht. Später kommt sie ` +
           `in die Küche, wo ihre Mutter gerade kocht. Anna sagt: „Mama, Oma kommt doch bald, oder?“ Ihre Mutter ` +
           `antwortet: „Ja. Schön zu wissen, dass ich auf dich zählen kann, wenn wir Besuch bekommen.“`,
 
@@ -4042,7 +4042,7 @@ export const stories = [
 
         storyText:
           `Draußen regnet es. Anna kommt klatschnass nach Hause und hinterlässt Wasserpfützen auf dem Boden. ` +
-          `Ihre nasse Jacke lässt sie einfach auf den Boden fallen, bevor sie in ihr Zimmer geht. Später kommt ` +
+          `Ihre nasse Jacke lässt sie einfach auf den Boden fallen, bevor sie in ihr Zimmer geht. Später kommt sie ` +
           `in die Küche, wo ihre Mutter gerade kocht. Anna sagt: „Mama, Oma kommt doch bald, oder?“ Ihre Mutter ` +
           `antwortet: „Ja. Und wegen dir gibt es davor noch einiges zu tun.“`,
 
@@ -4077,7 +4077,7 @@ export const stories = [
 
         storyText:
           `Draußen regnet es. Anna kommt klatschnass nach Hause und hinterlässt Wasserpfützen auf dem Boden. ` +
-          `Ihre nasse Jacke lässt sie einfach auf den Boden fallen, bevor sie in ihr Zimmer geht. Später kommt ` +
+          `Ihre nasse Jacke lässt sie einfach auf den Boden fallen, bevor sie in ihr Zimmer geht. Später kommt sie ` +
           `in die Küche, wo ihre Mutter gerade kocht. Anna sagt: „Mama, Oma kommt doch bald, oder?“ Ihre Mutter ` +
           `antwortet: „Ja. Lass uns davor noch den Boden trockenwischen, damit Oma nicht ausrutscht.“`,
 

@@ -4,8 +4,8 @@
       <form class="final-questionnaire" @submit.prevent="submitQuestionnaire">
         <h2>Zum Abschluss</h2>
         <p>
-          Vielen Dank für deine Antworten zu den Geschichten! Es gibt noch ein paar
-          Fragen zu deiner Person zu beantworten.
+          Vielen Dank für deine Antworten zu den Geschichten! Bitte beantworte noch ein paar
+          Fragen zu deiner Person.
         </p>
 
         <div class="field">
