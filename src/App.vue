@@ -1,5 +1,5 @@
 <template>
-  <Experiment title="Study 74">
+  <Experiment title="Study-74">
 
     <!-- General information -->
     <GeneralInstructions />
