@@ -1,5 +1,5 @@
 <template>
-  <Experiment title="Ironie und Kommunikation">
+  <Experiment title="Ironie Normierung für Erwachsene">
 
     <!-- General information -->
     <GeneralInstructions />
@@ -8,11 +8,19 @@
     <Instructions />
 
     <!-- 24 experimental stories -->
-    <StoryTrial
+    <Screen
       v-for="trial in participantTrials"
       :key="`${trial.storyId}-${trial.condition}`"
-      :trial="trial"
-    />
+    >
+      <Slide>
+        <StoryTrial
+          :trial="trial"
+          @complete="completeStory"
+        />
+      </Slide>
+    </Screen>
+
+    <FinalQuestionnaire />
 
     <!-- Final information -->
     <EndExperiment />
@@ -29,6 +37,7 @@ import GeneralInstructions from "./GeneralInstructions.vue";
 import Instructions from "./Instructions.vue";
 import StoryTrial from "./StoryTrial.vue";
 import EndExperiment from "./EndExperiment.vue";
+import FinalQuestionnaire from "./FinalQuestionnaire.vue";
 
 import {
   createParticipantTrials
@@ -42,7 +51,9 @@ export default {
     GeneralInstructions,
     Instructions,
     StoryTrial,
+    FinalQuestionnaire,
     EndExperiment
+
   },
 
   data() {
@@ -56,6 +67,13 @@ export default {
     };
   },
 
+  methods: {
+    completeStory(results) {
+      this.$magpie.addTrialData(results);
+      this.$magpie.nextScreen();
+    }
+  },
+
   created() {
     const params =
       new URLSearchParams(
@@ -66,10 +84,10 @@ export default {
     // 1. Read Latin-square list from Taskflow
     // -----------------------------------------
 
-    this.listNumber =
-      Number(params.get("list"));
+    this.listNumber = Number(params.get("list"));
 
     if (
+      !Number.isInteger(this.listNumber) ||
       this.listNumber < 1 ||
       this.listNumber > 4
     ) {

@@ -1,24 +1,15 @@
 <template>
   <div class="story-trial">
-
-    <!-- =========================
-         STORY
-         ========================= -->
     <div class="story-box">
       <p>
         {{ trial.storyText }}
       </p>
     </div>
-
-
-    <!-- =========================
-         QUESTION 1
-         ========================= -->
-    <div class="question-block">
-      <p class="question-text">
+    <div ref="questionPanel" class="question-panel">
+    <div v-if="currentStep === 'next'" key="next" class="question-block">
+      <p id="question-1" class="question-text">
         {{ trial.nextQuestion.question }}
       </p>
-
       <div class="text-options">
         <label
             v-for="option in nextOptions"
@@ -28,35 +19,28 @@
             <input
             type="radio"
             :name="`next-${trial.storyId}`"
+            aria-describedby="question-1"
             :value="option.id"
             :checked="nextResponse === option.id"
             @change="selectNext(option.id)"
             >
-
             <span class="radio-option-text">
             {{ option.text }}
             </span>
         </label>
       </div>
     </div>
-
-
-    <!-- =========================
-         QUESTION 2: EMOTION
-         appears after Q1
-         ========================= -->
     <div
-      v-if="showEmotionQuestion"
+      v-if="currentStep === 'emotion'"
+      key="emotion"
       class="question-block"
     >
       <p class="utterance-reminder">
         {{ completeUtteranceReminder }}
       </p>
-
-      <p class="question-text">
+      <p id="question-2" class="question-text">
         {{ commonQuestions.emotion.question }}
       </p>
-
       <div class="emotion-options">
         <label
             v-for="option in emotionOptions"
@@ -68,10 +52,10 @@
             :alt="option.alt || option.id"
             class="emotion-image"
             >
-
             <input
             type="radio"
             :name="`emotion-${trial.storyId}`"
+            aria-describedby="question-2"
             :value="option.id"
             :checked="emotionResponse === option.id"
             class="emotion-radio"
@@ -80,20 +64,14 @@
         </label>
       </div>
     </div>
-
-
-    <!-- =========================
-         QUESTION 3: SITUATION
-         appears after Q2
-         ========================= -->
     <div
-      v-if="showSituationQuestion"
+      v-if="currentStep === 'situation'"
+      key="situation"
       class="question-block"
     >
-      <p class="question-text">
+      <p id="question-3" class="question-text">
         {{ trial.situationQuestion.question }}
       </p>
-
       <div class="text-options">
         <label
             v-for="option in situationOptions"
@@ -103,364 +81,264 @@
             <input
             type="radio"
             :name="`situation-${trial.storyId}`"
+            aria-describedby="question-3"
             :value="option.id"
             :checked="situationResponse === option.id"
             @change="selectSituation(option.id)"
             >
-
             <span class="radio-option-text">
             {{ option.text }}
             </span>
         </label>
       </div>
     </div>
-
-
-    <!-- =========================
-         QUESTION 4: WHY
-         only appears if triggered
-         ========================= -->
     <div
-      v-if="showWhyQuestion"
+      v-if="currentStep === 'why'"
+      key="why"
       class="question-block"
     >
-      <p class="question-text">
+      <p id="question-4" class="question-text">
         {{ commonQuestions.why.question }}
       </p>
-
       <textarea
         v-model="whyResponse"
+        aria-labelledby="question-4"
         class="why-input"
         rows="3"
         placeholder="Bitte gib hier deine Antwort ein."
-      />
+      ></textarea>
     </div>
-
-
-    <!-- =========================
-         QUESTION 5: DIFFICULTY
-         ========================= -->
     <div
-      v-if="showDifficultyQuestion"
+      v-if="currentStep === 'difficulty'"
+      key="difficulty"
       class="question-block"
     >
-      <p class="question-text">
+      <p id="question-5" class="question-text">
         {{ commonQuestions.difficulty.question }}
       </p>
-
       <div class="slider-container">
         <input
           v-model.number="difficultyRating"
+          aria-labelledby="question-5"
           type="range"
           :min="commonQuestions.difficulty.min"
           :max="commonQuestions.difficulty.max"
           class="slider"
           @input="difficultyTouched = true"
+          @pointerup="difficultyTouched = true"
+          @keyup="markSliderKey('difficulty', $event)"
         >
-
         <div class="slider-labels">
           <span>
             {{ commonQuestions.difficulty.leftLabel }}
           </span>
-
           <span>
             {{ commonQuestions.difficulty.rightLabel }}
           </span>
         </div>
       </div>
     </div>
-
-
-    <!-- =========================
-         QUESTION 6: LIKELIHOOD
-         appears after Q5 was used
-         ========================= -->
     <div
-      v-if="showLikelihoodQuestion"
+      v-if="currentStep === 'likelihood'"
+      key="likelihood"
       class="question-block"
     >
-      <p class="question-text">
+      <p id="question-6" class="question-text">
         {{ commonQuestions.likelihood.question }}
       </p>
-
       <div class="slider-container">
         <input
           v-model.number="likelihoodRating"
+          aria-labelledby="question-6"
           type="range"
           :min="commonQuestions.likelihood.min"
           :max="commonQuestions.likelihood.max"
           class="slider"
           @input="likelihoodTouched = true"
+          @pointerup="likelihoodTouched = true"
+          @keyup="markSliderKey('likelihood', $event)"
         >
-
         <div class="slider-labels">
           <span>
             {{ commonQuestions.likelihood.leftLabel }}
           </span>
-
           <span>
             {{ commonQuestions.likelihood.rightLabel }}
           </span>
         </div>
       </div>
     </div>
-
-
-    <!-- =========================
-         CONTINUE
-         ========================= -->
     <div
-      v-if="showContinueButton"
       class="continue-container"
     >
       <button
         type="button"
         class="continue-button"
-        @click="submitTrial"
+        :disabled="!canContinue || submitted"
+        @click="advanceQuestion"
       >
         Weiter
       </button>
     </div>
-
+    </div>
   </div>
 </template>
-
-
 <script>
 import { commonQuestions } from "./trials.js";
 
-
 function shuffleArray(array) {
   const shuffled = [...array];
-
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(
-      Math.random() * (i + 1)
-    );
-
-    [shuffled[i], shuffled[j]] = [
-      shuffled[j],
-      shuffled[i]
-    ];
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-
   return shuffled;
 }
 
+function initialState(trial) {
+  return {
+    currentStep: "next",
+    submitted: false,
+    nextOptions: shuffleArray(trial.nextQuestion.options),
+    emotionOptions: shuffleArray(commonQuestions.emotion.options),
+    situationOptions: shuffleArray(trial.situationQuestion.options),
+    nextResponse: null,
+    emotionResponse: null,
+    situationResponse: null,
+    whyResponse: "",
+    difficultyRating: (commonQuestions.difficulty.min + commonQuestions.difficulty.max) / 2,
+    difficultyTouched: false,
+    likelihoodRating: (commonQuestions.likelihood.min + commonQuestions.likelihood.max) / 2,
+    likelihoodTouched: false
+  };
+}
 
 export default {
   name: "StoryTrial",
-
   props: {
-    trial: {
-      type: Object,
-      required: true
-    }
+    trial: { type: Object, required: true }
   },
-
   data() {
-    return {
-      commonQuestions,
-
-      // Randomize the position of the answer options.
-      nextOptions: shuffleArray(
-        this.trial.nextQuestion.options
-      ),
-
-      emotionOptions: shuffleArray(
-        commonQuestions.emotion.options
-      ),
-
-      situationOptions: shuffleArray(
-        this.trial.situationQuestion.options
-      ),
-
-      // Participant responses
-      nextResponse: null,
-      emotionResponse: null,
-      situationResponse: null,
-      whyResponse: "",
-
-      // Sliders start visually in the middle.
-      // "Touched" tells us whether the participant
-      // actually interacted with them.
-      difficultyRating: 50,
-      difficultyTouched: false,
-
-      likelihoodRating: 50,
-      likelihoodTouched: false
-    };
+    return { commonQuestions, ...initialState(this.trial) };
   },
-
   computed: {
-
     completeUtteranceReminder() {
-        return (
-        `${this.trial.utteranceReminder} ` +
-        `„${this.trial.utterance}“`
-        );
+      return `${this.trial.utteranceReminder} „${this.trial.utterance}“`;
     },
-    
-    // Q2 appears after Q1.
-    showEmotionQuestion() {
-      return this.nextResponse !== null;
+    // Preserve the response-dependent explanation rule in trials.js.
+    whyRequired() {
+      return this.situationResponse !== null &&
+        this.situationResponse === this.trial.situationLogic.whyTrigger;
     },
-
-    // Q3 appears after Q2.
-    showSituationQuestion() {
-      return this.emotionResponse !== null;
-    },
-
-    // Q4 appears only for the response specified
-    // by this version's whyTrigger.
-    showWhyQuestion() {
-      return (
-        this.situationResponse !== null &&
-        this.situationResponse ===
-          this.trial.situationLogic.whyTrigger
-      );
-    },
-
-    // Q3 is complete if it has an answer and:
-    // - no explanation is required, OR
-    // - an explanation is required and has been entered.
-    situationSectionComplete() {
-      if (this.situationResponse === null) {
-        return false;
+    canContinue() {
+      switch (this.currentStep) {
+        case "next": return this.nextResponse !== null;
+        case "emotion": return this.emotionResponse !== null;
+        case "situation": return this.situationResponse !== null;
+        case "why": return this.whyResponse.trim().length > 0;
+        case "difficulty": return this.difficultyTouched;
+        case "likelihood": return this.likelihoodTouched;
+        default: return false;
       }
-
-      if (!this.showWhyQuestion) {
-        return true;
-      }
-
-      return this.whyResponse.trim().length > 0;
-    },
-
-    // Q5 appears after Q3 / Q4 are complete.
-    showDifficultyQuestion() {
-      return this.situationSectionComplete;
-    },
-
-    // Q6 appears only once Q5 has actually
-    // been interacted with.
-    showLikelihoodQuestion() {
-      return this.difficultyTouched;
-    },
-
-    // Continue appears only once Q6 has
-    // actually been interacted with.
-    showContinueButton() {
-      return this.likelihoodTouched;
     }
   },
-
+  watch: {
+    // Also works when App.vue reuses this component for the next trial.
+    trial() {
+      Object.assign(this.$data, initialState(this.trial));
+      this.resetQuestionScroll();
+    }
+  },
   methods: {
     selectNext(optionId) {
-      if (this.nextResponse !== optionId) {
-        this.nextResponse = optionId;
-
-        // Reset all later questions if Q1 is changed.
-        this.emotionResponse = null;
-        this.situationResponse = null;
-        this.whyResponse = "";
-
-        this.difficultyRating = 50;
-        this.difficultyTouched = false;
-
-        this.likelihoodRating = 50;
-        this.likelihoodTouched = false;
-      }
+      if (!this.submitted && this.currentStep === "next") this.nextResponse = optionId;
     },
-
     selectEmotion(optionId) {
-      if (this.emotionResponse !== optionId) {
-        this.emotionResponse = optionId;
-
-        // Reset later questions if Q2 is changed.
-        this.situationResponse = null;
-        this.whyResponse = "";
-
-        this.difficultyRating = 50;
-        this.difficultyTouched = false;
-
-        this.likelihoodRating = 50;
-        this.likelihoodTouched = false;
-      }
+      if (!this.submitted && this.currentStep === "emotion") this.emotionResponse = optionId;
     },
-
     selectSituation(optionId) {
-      if (this.situationResponse !== optionId) {
-        this.situationResponse = optionId;
-
-        // Reset later questions if Q3 is changed.
-        this.whyResponse = "";
-
-        this.difficultyRating = 50;
-        this.difficultyTouched = false;
-
-        this.likelihoodRating = 50;
-        this.likelihoodTouched = false;
+      if (!this.submitted && this.currentStep === "situation") this.situationResponse = optionId;
+    },
+    markSliderKey(field, event) {
+      // Accept deliberate selection of the midpoint as well as moved values.
+      if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End", "PageUp", "PageDown"].includes(event.key)) {
+        this[field + "Touched"] = true;
       }
     },
-
+    resetQuestionScroll() {
+      this.$nextTick(() => {
+        const panel = this.$refs.questionPanel;
+        if (panel) panel.scrollTop = 0;
+      });
+    },
+    advanceQuestion() {
+      if (!this.canContinue || this.submitted) return;
+      // There is deliberately no backward transition.
+      const nextStep = {
+        next: "emotion",
+        emotion: "situation",
+        situation: this.whyRequired ? "why" : "difficulty",
+        why: "difficulty",
+        difficulty: "likelihood"
+      }[this.currentStep];
+      if (nextStep) {
+        this.currentStep = nextStep;
+        this.resetQuestionScroll();
+      } else if (this.currentStep === "likelihood") {
+        this.submitTrial();
+      }
+    },
     submitTrial() {
+      if (this.submitted || this.currentStep !== "likelihood" || !this.canContinue) return;
+      this.submitted = true;
       const selectedNextOption =
         this.trial.nextQuestion.options.find(
           option =>
             option.id === this.nextResponse
         );
-
       const results = {
-        // Trial identity
+        // Trial identity and randomized presentation order
         story_id: this.trial.storyId,
+        trial_number: this.trial.trialNumber,
+        level_order: this.trial.levelOrder,
+        within_level_trial: this.trial.withinLevelTrial,
         level: this.trial.level,
         latin_position:
           this.trial.latinPosition,
         list: this.trial.list,
         condition: this.trial.condition,
-
         // Question 1
         next_response:
           this.nextResponse,
-
         next_correct:
           selectedNextOption
             ? selectedNextOption.correct
             : null,
-
         // Question 2
         emotion_response:
           this.emotionResponse,
-
         emotion_correct:
           this.emotionResponse ===
           this.trial.correctEmotion,
-
         // Question 3
         situation_response:
           this.situationResponse,
-
         situation_correct:
           this.situationResponse ===
           this.trial.situationLogic.correctAnswer,
-
         // Question 4
         why_triggered:
-          this.showWhyQuestion,
-
+          this.whyRequired,
         why_response:
-          this.showWhyQuestion
+          this.whyRequired
             ? this.whyResponse.trim()
             : null,
-
         // Questions 5 and 6
         difficulty_rating:
           this.difficultyRating,
-
         likelihood_rating:
           this.likelihoodRating
       };
-
       // Let App.vue decide what happens next.
       this.$emit("complete", results);
     }
@@ -468,29 +346,44 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .story-trial {
   box-sizing: border-box;
   width: 100%;
   max-width: 800px;
-  margin: 30px auto 60px;
+  margin: 16px auto;
+  height: calc(100vh - 32px);
+  height: calc(100dvh - 32px);
+  display: flex;
+  flex-direction: column;
   padding: 0 30px;
   font-size: 18px;
   line-height: 1.6;
 }
-
+.question-panel {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0 4px 20px;
+}
+.continue-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
 .story-box {
-  margin-bottom: 35px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  max-height: 45%;
+  overflow-y: auto;
+  background: white;
+  margin-bottom: 16px;
   padding: 22px 26px;
   border: 1px solid #d0d0d0;
   border-radius: 6px;
 }
-
 .story-box p {
   margin: 0;
 }
-
 .radio-option {
   display: flex;
   align-items: flex-start;
@@ -504,7 +397,6 @@ export default {
   text-transform: none;
   cursor: pointer;
 }
-
 .radio-option input[type="radio"] {
   flex: 0 0 auto;
   width: 18px;
@@ -513,46 +405,38 @@ export default {
   accent-color: #333333;
   cursor: pointer;
 }
-
 .radio-option-text {
   color: #000000;
   font-size: 17px;
   font-weight: normal;
   text-transform: none;
 }
-
 .question-block {
-  margin-top: 35px;
+  margin-top: 0;
   padding-top: 25px;
   border-top: 1px solid #dddddd;
 }
-
 .question-text {
   margin-bottom: 18px;
   font-weight: bold;
 }
-
 .utterance-reminder {
   margin-bottom: 18px;
   font-style: italic;
 }
-
 .text-options {
   display: flex;
   flex-direction: column;
   gap: 14px;
   margin-top: 12px;
 }
-
-
 .emotion-options {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px;
+  gap: 40px;
   margin-top: 20px;
 }
-
 .emotion-choice {
   display: flex;
   flex-direction: column;
@@ -560,14 +444,12 @@ export default {
   gap: 14px;
   cursor: pointer;
 }
-
 .emotion-image {
   display: block;
   width: 180px;
   max-width: 100%;
   height: auto;
 }
-
 .emotion-radio {
   width: 20px;
   height: 20px;
@@ -575,7 +457,6 @@ export default {
   accent-color: #333333;
   cursor: pointer;
 }
-
 .why-input {
   box-sizing: border-box;
   width: 100%;
@@ -587,16 +468,13 @@ export default {
   line-height: 1.5;
   resize: vertical;
 }
-
 .slider-container {
   width: 100%;
   margin-top: 20px;
 }
-
 .slider {
   width: 100%;
 }
-
 .slider-labels {
   display: flex;
   justify-content: space-between;
@@ -604,31 +482,25 @@ export default {
   margin-top: 8px;
   font-size: 15px;
 }
-
 .slider-labels span:last-child {
   text-align: right;
 }
-
 .continue-container {
   margin-top: 40px;
   text-align: center;
 }
-
 .continue-button {
   padding: 12px 30px;
   font-size: 18px;
   cursor: pointer;
 }
-
 @media (max-width: 700px) {
   .story-trial {
     padding: 0 16px;
   }
-
   .emotion-options {
     gap: 20px;
   }
-
   .emotion-image {
     width: 120px;
   }
