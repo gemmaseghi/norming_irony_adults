@@ -65,7 +65,7 @@ export default {
             </p>
 
             <p>
-              3. Vergütung: Für deine Teilnahme erhältst du 6.00 Euro.           
+              3. Vergütung: Für deine Teilnahme erhältst du £ 6.00.           
             </p>
 
             <p>

@@ -1,5 +1,5 @@
 <template>
-  <Experiment title="Ironie Normierung für Erwachsene">
+  <Experiment title="Study 74">
 
     <!-- General information -->
     <GeneralInstructions />

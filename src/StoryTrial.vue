@@ -7,7 +7,10 @@
       </p>
     </div>
     <div ref="questionPanel" class="question-panel">
-      <p class="utterance-reminder">
+      <p
+        v-if="currentStep !== 'next'"
+        class="utterance-reminder"
+      >
         {{ completeUtteranceReminder }}
       </p>
 
