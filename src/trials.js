@@ -4181,58 +4181,11 @@ export function shuffleArray(array) {
 
 
 export function randomizeTrialOrder(trials) {
-  const levels = [
-    ...new Set(
-      trials.map(
-        trial => trial.level
-      )
-    )
-  ];
-
-  const shuffledLevels =
-    shuffleArray(levels);
-
-  const randomizedTrials = [];
-
-  shuffledLevels.forEach(
-    (level, levelIndex) => {
-
-      const levelTrials =
-        trials.filter(
-          trial =>
-            trial.level === level
-        );
-
-      const shuffledLevelTrials =
-        shuffleArray(levelTrials);
-
-      shuffledLevelTrials.forEach(
-        (trial, withinLevelIndex) => {
-
-          randomizedTrials.push({
-            ...trial,
-
-            levelOrder:
-              levelIndex + 1,
-
-            withinLevelTrial:
-              withinLevelIndex + 1
-          });
-        }
-      );
-    }
-  );
-
-  return randomizedTrials.map(
-    (trial, index) => ({
-      ...trial,
-
-      trialNumber:
-        index + 1
-    })
-  );
+  return shuffleArray(trials).map((trial, index) => ({
+    ...trial,
+    trialNumber: index + 1
+  }));
 }
-
 
 export function createParticipantTrials(
   listNumber

@@ -1,11 +1,16 @@
 <template>
   <div class="story-trial">
+    <h2 class="story-progress">Geschichte {{ trial.trialNumber }}/{{ totalStories }}</h2>
     <div class="story-box">
       <p>
         {{ trial.storyText }}
       </p>
     </div>
     <div ref="questionPanel" class="question-panel">
+      <p class="utterance-reminder">
+        {{ completeUtteranceReminder }}
+      </p>
+
     <div v-if="currentStep === 'next'" key="next" class="question-block">
       <p id="question-1" class="question-text">
         {{ trial.nextQuestion.question }}
@@ -35,9 +40,6 @@
       key="emotion"
       class="question-block"
     >
-      <p class="utterance-reminder">
-        {{ completeUtteranceReminder }}
-      </p>
       <p id="question-2" class="question-text">
         {{ commonQuestions.emotion.question }}
       </p>
@@ -216,7 +218,8 @@ function initialState(trial) {
 export default {
   name: "StoryTrial",
   props: {
-    trial: { type: Object, required: true }
+    trial: { type: Object, required: true },
+    totalStories: { type: Number, default: 24 }
   },
   data() {
     return { commonQuestions, ...initialState(this.trial) };
@@ -300,8 +303,6 @@ export default {
         // Trial identity and randomized presentation order
         story_id: this.trial.storyId,
         trial_number: this.trial.trialNumber,
-        level_order: this.trial.levelOrder,
-        within_level_trial: this.trial.withinLevelTrial,
         level: this.trial.level,
         latin_position:
           this.trial.latinPosition,
@@ -359,6 +360,12 @@ export default {
   padding: 0 30px;
   font-size: 18px;
   line-height: 1.6;
+}
+.story-progress {
+  flex: 0 0 auto;
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 600;
 }
 .question-panel {
   min-height: 0;

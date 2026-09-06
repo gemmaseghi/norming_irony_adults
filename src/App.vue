@@ -121,6 +121,8 @@ export default {
       );
   },
 
+ 
+
   mounted() {
     // Save participant-level information
     // with the experiment data.
