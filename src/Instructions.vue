@@ -43,8 +43,29 @@ export default {
             </p>
 
             <p>
-              Du wirst jeweils eine kurze Geschichte lesen. In allen Geschichten geht es um die beiden Geschwister Anna und Tobi. Am Ende jeder Geschichte trifft die Mutter der beiden eine Aussage über das Verhalten ihrer Kinder. 
+              Du wirst jeweils eine kurze Geschichte lesen. In allen Geschichten geht es um die drei Geschwister Anna, Tobi und Marie. Am Ende jeder Geschichte trifft die Mutter der drei eine Aussage über das Verhalten ihrer Kinder. 
             </p>
+
+            <p>
+              Anna und Tobi sind Zwillinge. Die beiden sind zwölf Jahre alt. Marie ist ihre kleine Schwester. Sie hat vor Kurzem ihren fünften Geburtstag gefeiert. 
+            </p>
+
+            <div class="instruction-images">
+              <div class="instruction-image">
+                <img src="/Anna.jpg" alt="Anna">
+                <div class="image-caption">Anna (12 Jahre)</div>
+              </div>
+
+              <div class="instruction-image">
+                <img src="/Tobi.jpg" alt="Tobi">
+                <div class="image-caption">Tobi (12 Jahre)</div>
+              </div>
+
+              <div class="instruction-image">
+                <img src="/Marie.jpg" alt="Marie">
+                <div class="image-caption">Marie (5 Jahre)</div>
+              </div>
+            </div>
 
             <p>
               Deine Aufgabe ist es, einige Fragen zum Inhalt der Geschichte zu beantworten. Da die Studie für Kinder gedacht ist, werden dir einige Fragen vermutlich recht einfach erscheinen. Bitte gib dir trotzdem Mühe, sie korrekt zu beantworten.
@@ -57,6 +78,7 @@ export default {
             <p>
               Am Ende jeder Geschichte gibt es zudem zwei weitere Fragen, die die Kinder nicht sehen werden. Hier sollst du einschätzen, wie schwierig es für ein Kind ist, die Aussage der Mutter zu verstehen und wie wahrscheinlich es ist, dass ein Elternteil eine solche Aussage trifft. Gib hier einfach spontan deine persönliche Einschätzung ab.
             </p>
+
 
             <p>
               Klicke <strong>Weiter</strong>, um mit der ersten Geschichte zu starten.
@@ -117,17 +139,20 @@ export default {
 }
 
 .instructions :deep(.instruction-images) {
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center ;
   align-items: flex-start;
-  gap: 24px;
+  gap: 15px;
   width: 100%;
-  max-width: 1000px;
-  margin: 24px auto;
+  margin: 30px auto 20px;
 }
 
 .instructions :deep(.instruction-image) {
-  flex: 1;
+  display: block !important;
+  flex: 1 1 0 !important;
+  width: auto !important;
   min-width: 0;
   text-align: center;
 }
@@ -135,9 +160,15 @@ export default {
 .instructions :deep(.instruction-image img) {
   display: block;
   width: 100%;
-  max-width: 400px;
+  max-width: none !important;
   height: auto;
-  margin: 0 auto;
+  margin: 0;
+}
+
+.instructions :deep(.image-caption) {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 16px;
 }
 
 

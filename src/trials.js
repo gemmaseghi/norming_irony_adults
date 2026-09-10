@@ -18,9 +18,9 @@ export const commonQuestions = {
   },
 
   difficulty: {
-    question:
-      "Wie schwierig ist es deiner Meinung nach für ein Kind, " +
-      "die Aussage der Mutter in dieser Situation zu verstehen?",
+    question: (age) =>
+      "Wie schwierig ist es deiner Meinung nach für ein " +
+      `${age}-jähriges Kind, die Aussage der Mutter in dieser Situation zu verstehen?`,
     min: 0,
     max: 100,
     leftLabel: "gar nicht schwierig",
@@ -28,9 +28,9 @@ export const commonQuestions = {
   },
 
   likelihood: {
-    question:
+    question: (age) =>
       "Wie wahrscheinlich ist es deiner Meinung nach, dass ein " +
-      "Elternteil diese Aussage gegenüber einem Kind trifft?",
+      `Elternteil diese Aussage gegenüber einem ${age}-jährigen Kind trifft?`,
     min: 0,
     max: 100,
     leftLabel: "sehr unwahrscheinlich",
@@ -51,7 +51,7 @@ export const stories = [
     level: 1,
     latinPosition: 0,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -71,13 +71,14 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
           `Anna fährt morgen mit ihrer Familie in den Urlaub. ` +
           `Ihre Mutter sagt: „Pack bitte deine Sachen für den Urlaub ` +
           `in den Koffer. Er steht schon in deinem Zimmer.“ ` +
-          `Anna geht in ihr Zimmer und spielt mit ihrer Puppe. ` +
+          `Anna geht in ihr Zimmer und spielt ein Spiel. ` +
           `Ihre Mutter kommt herein und sagt: „Toll gemacht!“`,
 
         utterance: "Toll gemacht!",
@@ -92,7 +93,7 @@ export const stories = [
             },
             {
               id: "plays",
-              text: "Anna spielt weiter mit ihrer Puppe",
+              text: "Anna spielt weiter",
               correct: false
             }
           ]
@@ -107,13 +108,14 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Anna fährt morgen mit ihrer Familie in den Urlaub. ` +
+          `Marie fährt morgen mit ihrer Familie in den Urlaub. ` +
           `Ihre Mutter sagt: „Pack bitte deine Sachen für den Urlaub ` +
           `in den Koffer. Er steht schon in deinem Zimmer.“ ` +
-          `Anna geht in ihr Zimmer und packt ihren Koffer. ` +
+          `Marie geht in ihr Zimmer und packt ihren Koffer. ` +
           `Als sie den gepackten Koffer gerade geschlossen hat, ` +
           `kommt ihre Mutter herein und sagt: „Toll gemacht!“`,
 
@@ -123,15 +125,15 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "plays_after_packing",
+              id: "plays_after_packing_marie",
               text:
-                "Anna spielt mit ihrer Puppe",
+                "Marie spielt mit ihrer Puppe",
               correct: true
             },
             {
-              id: "gets_more_stuff",
+              id: "gets_more_stuff_marie",
               text:
-                "Anna holt noch weitere Sachen aus dem Schrank",
+                "Marie holt noch weitere Sachen aus dem Schrank",
               correct: false
             }
           ]
@@ -146,13 +148,14 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Marie.jpg",
         condition: "criticism",
 
         storyText:
-          `Anna fährt morgen mit ihrer Familie in den Urlaub. ` +
+          `Marie fährt morgen mit ihrer Familie in den Urlaub. ` +
           `Ihre Mutter sagt: „Pack bitte deine Sachen für den Urlaub ` +
           `in den Koffer. Er steht schon in deinem Zimmer.“ ` +
-          `Anna geht in ihr Zimmer und spielt mit ihrer Puppe. ` +
+          `Marie geht in ihr Zimmer und spielt mit ihrer Puppe. ` +
           `Ihre Mutter kommt herein und sagt: ` +
           `„Du hast deinen Koffer noch nicht gepackt!“`,
 
@@ -162,13 +165,13 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "packs",
-              text: "Anna packt ihren Koffer",
+              id: "packs_marie",
+              text: "Marie packt ihren Koffer",
               correct: true
             },
             {
-              id: "plays",
-              text: "Anna spielt weiter mit ihrer Puppe",
+              id: "plays_marie",
+              text: "Marie spielt weiter mit ihrer Puppe",
               correct: false
             }
           ]
@@ -183,18 +186,19 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
           `Anna fährt morgen mit ihrer Familie in den Urlaub. ` +
           `Ihre Mutter sagt: „Pack bitte deine Sachen für den Urlaub ` +
           `in den Koffer. Er steht schon in deinem Zimmer.“ ` +
-          `Anna geht in ihr Zimmer und spielt mit ihrer Puppe. ` +
+          `Anna geht in ihr Zimmer und spielt ein Spiel. ` +
           `Ihre Mutter kommt herein und sagt: ` +
-          `„Mein Koffer ist schon gepackt. Ich kann dir jetzt mit deinem helfen.“`,
+          `„Mein Koffer ist schon gepackt. Kommm, wir fangen jetzt gemeinsam mit deinem an.“`,
 
         utterance:
-          "Mein Koffer ist schon gepackt. Ich kann dir jetzt mit deinem helfen.",
+          "Mein Koffer ist schon gepackt. Kommm, wir fangen jetzt gemeinsam mit deinem an.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -206,7 +210,7 @@ export const stories = [
             },
             {
               id: "plays",
-              text: "Anna spielt weiter mit ihrer Puppe",
+              text: "Anna spielt weiter",
               correct: false
             }
           ]
@@ -226,7 +230,7 @@ export const stories = [
     level: 1,
     latinPosition: 1,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -246,6 +250,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -282,6 +287,7 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -320,6 +326,7 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -356,6 +363,7 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -363,10 +371,10 @@ export const stories = [
           `mach jetzt deine Hausaufgaben.“ Tobi geht in sein Zimmer, ` +
           `stellt seine Schultasche in die Ecke und fängt an, auf seinem ` +
           `Computer ein Videospiel zu spielen. Seine Mutter kommt herein ` +
-          `und sagt: „Na komm, wir schauen uns deine Hausaufgaben mal zusammen an.“`,
+          `und sagt: „Alles gut! Na komm, wir schauen uns deine Hausaufgaben mal zusammen an.“`,
 
         utterance:
-          "Na komm, wir schauen uns deine Hausaufgaben mal zusammen an.",
+          "Alles gut! Na komm, wir schauen uns deine Hausaufgaben mal zusammen an.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -398,7 +406,7 @@ export const stories = [
     level: 1,
     latinPosition: 2,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -418,10 +426,11 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
-          `Anna malt auf dem Esstisch ein Bild aus. Ihre Mutter sagt: ` +
+          `Anna malt auf dem Esstisch ein Bild. Ihre Mutter sagt: ` +
           `„Bitte pass auf, dass du nur auf dem Papier malst.“ Kurz darauf ` +
           `hat Anna an mehreren Stellen auf den Tisch gemalt. Ihre Muttter ` +
           `kommt herein und sagt: „Super gemacht!”`,
@@ -438,7 +447,7 @@ export const stories = [
             },
             {
               id: "color",
-              text: "Anna malt weiter ihr Bild aus",
+              text: "Anna malt weiter ihr Bild",
               correct: false
             }
           ]
@@ -453,11 +462,12 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Anna malt auf dem Esstisch ein Bild aus. Ihre Mutter sagt: ` +
-          `„Bitte pass auf, dass du nur auf dem Papier malst.“ Anna ist ` +
+          `Marie malt auf dem Esstisch ein Bild aus. Ihre Mutter sagt: ` +
+          `„Bitte pass auf, dass du nur auf dem Papier malst.“ Marie ist ` +
           `sehr vorsichtig unhd malt ihr Bild aus, ohne dabei auf den ` +
           `Tisch zu malen. Ihre Mutter kommt herein und sagt: „Super gemacht!”`,
 
@@ -467,15 +477,15 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "color",
+              id: "color_marie",
               text:
-                "Anna malt weiter ihr Bild aus",
+                "Marie malt weiter ihr Bild aus",
               correct: true
             },
             {
-              id: "wipe",
+              id: "wipe_marie",
               text:
-                "Anna wischt den Tisch sauber",
+                "Marie wischt den Tisch sauber",
               correct: false
             }
           ]
@@ -490,10 +500,11 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
-          `Anna malt auf dem Esstisch ein Bild aus. Ihre Mutter sagt: ` +
+          `Anna malt auf dem Esstisch ein Bild. Ihre Mutter sagt: ` +
           `„Bitte pass auf, dass du nur auf dem Papier malst.“ Kurz darauf ` +
           `hat Anna an mehreren Stellen auf den Tisch gemalt. Ihre Muttter ` +
           `kommt herein und sagt: „Du hast den ganzen Tisch angemalt!“`,
@@ -510,7 +521,7 @@ export const stories = [
             },
             {
               id: "color",
-              text: "Anna malt weiter ihr Bild aus",
+              text: "Anna malt weiter ihr Bild",
               correct: false
             }
           ]
@@ -525,16 +536,17 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
-          `Anna malt auf dem Esstisch ein Bild aus. Ihre Mutter sagt: ` +
+          `Anna malt auf dem Esstisch ein Bild. Ihre Mutter sagt: ` +
           `„Bitte pass auf, dass du nur auf dem Papier malst.“ Kurz darauf ` +
           `hat Anna an mehreren Stellen auf den Tisch gemalt. Ihre Muttter ` +
-          `kommt herein und sagt: „Keine Sorge, ich hole schnell einen Lappen!“`,
+          `kommt herein und sagt: „Keine Sorge! Ich hole einen Lappen und wir wischen das schnell ab.“`,
 
         utterance:
-          "Keine Sorge, ich hole schnell einen Lappen!",
+          "Keine Sorge! Ich hole einen Lappen und wir wischen das schnell ab.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -546,7 +558,7 @@ export const stories = [
             },
             {
               id: "color",
-              text: "Anna malt weiter ihr Bild aus",
+              text: "Anna malt weiter ihr Bild",
               correct: false
             }
           ]
@@ -566,7 +578,7 @@ export const stories = [
     level: 1,
     latinPosition: 3,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -586,6 +598,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -623,13 +636,14 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Tobi macht gerade ein Puzzle. Seine Mutter kommt mit einer ` +
+          `Marie macht gerade ein Puzzle. Ihre Mutter kommt mit einer ` +
           `Schüssel voller Gemüse herein und stellt sie auf den Tisch. ` +
           `Sie sagt: „Könntest du das bitte dem Kaninchen geben?“ ` +
-          `Sie geht wieder und Tobi füttert das Kaninchen. Als seine ` +
+          `Sie geht wieder und Marie füttert das Kaninchen. Als ihre ` +
           `Mutter zurückkommt, steht die leere Schüssel auf dem Tisch. ` +
           `Sie sagt: „Vielen Dank!“`,
 
@@ -639,15 +653,15 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "puzzle",
+              id: "puzzle_marie",
               text:
-                "Tobi puzzelt weiter",
+                "Marie puzzelt weiter",
               correct: true
             },
             {
-              id: "feed_again",
+              id: "feed_again_marie",
               text:
-                "Tobi füttert das Kaninchen erneut",
+                "Marie füttert das Kaninchen erneut",
               correct: false
             }
           ]
@@ -662,13 +676,14 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Marie.jpg",
         condition: "criticism",
 
         storyText:
-          `Tobi macht gerade ein Puzzle. Seine Mutter kommt mit einer ` +
+          `Marie macht gerade ein Puzzle. Ihre Mutter kommt mit einer ` +
           `Schüssel voller Gemüse herein und stellt sie auf den Tisch. ` +
           `Sie sagt: „Könntest du das bitte dem Kaninchen geben?“ ` +
-          `Sie geht wieder und Tobi puzzelt weiter. Als seine Mutter ` +
+          `Sie geht wieder und Marie puzzelt weiter. Als ihre Mutter ` +
           `zurückkommt, steht die volle Schüssel immer noch auf dem Tisch. ` +
           `Sie sagt: „Du hast das Kaninchen nicht gefüttert!“`,
 
@@ -678,13 +693,13 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "feed",
-              text: "Tobi füttert das Kaninchen",
+              id: "feed_marie",
+              text: "Marie füttert das Kaninchen",
               correct: true
             },
             {
-              id: "puzzle",
-              text: "Tobi puzzelt weiter",
+              id: "puzzle_marie",
+              text: "Marie puzzelt weiter",
               correct: false
             }
           ]
@@ -699,6 +714,7 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -707,11 +723,11 @@ export const stories = [
           `Sie sagt: „Könntest du das bitte dem Kaninchen geben?“ ` +
           `Sie geht wieder und Tobi puzzelt weiter. Als seine Mutter ` +
           `zurückkommt, steht die volle Schüssel immer noch auf dem Tisch. ` +
-          `Sie sagt: „Komm, wir schauen mal zusammen zum Kaninchen. ` +
+          `Sie sagt: „Nicht so schlimm! Komm, wir schauen mal zusammen zum Kaninchen. ` +
           `Das hat bestimmt schon Hunger.“`,
 
         utterance:
-          "Komm, wir schauen mal zusammen zum Kaninchen. Das hat bestimmt schon Hunger.",
+          "Nicht so schlimm!Komm, wir schauen mal zusammen zum Kaninchen. Das hat bestimmt schon Hunger.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -743,7 +759,7 @@ export const stories = [
     level: 2,
     latinPosition: 0,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -763,6 +779,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -770,10 +787,10 @@ export const stories = [
           `Die Mutter kommt ins Wohnzimmer und sagt zu Anna: „Das Abendessen ` +
           `ist bald fertig. Bitte deck schon mal den Tisch.“ ` +
           `Anna bleibt vor dem Fernseher sitzen. Als das Essen fertig ist, ` +
-          `läuft ihre Mutter zum Esstisch. Sie sagt: ` +
-          `„Alles ist bereit fürs Abendessen.“`,
+          `läuft ihre Mutter ins Esszimmer und sieht, dass der Tisch noch nicht gedeckt ist. ` +
+          `Sie sagt: „Alles ist bereit fürs Abendessen!“`,
 
-        utterance: "Alles ist bereit fürs Abendessen.",
+        utterance: "Alles ist bereit fürs Abendessen!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -800,6 +817,7 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -807,10 +825,10 @@ export const stories = [
           `Die Mutter kommt ins Wohnzimmer und sagt zu Anna: „Das Abendessen ` +
           `ist bald fertig. Bitte deck schon mal den Tisch.“ ` +
           `Anna deckt den Tisch. Als das Essen fertig ist, ` +
-          `läuft ihre Mutter zum Esstisch. Sie sagt: ` +
-          `„Alles ist bereit fürs Abendessen.“`,
+          `läuft ihre Mutter ins Esszimmer und sieht, dass der Tisch gedeckt ist. ` +
+          `Sie sagt: „Alles ist bereit fürs Abendessen!“`,
 
-        utterance: "Alles ist bereit fürs Abendessen.",
+        utterance: "Alles ist bereit fürs Abendessen!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -839,6 +857,7 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -846,8 +865,8 @@ export const stories = [
           `Die Mutter kommt ins Wohnzimmer und sagt zu Anna: „Das Abendessen ` +
           `ist bald fertig. Bitte deck schon mal den Tisch.“ ` +
           `Anna bleibt vor dem Fernseher sitzen. Als das Essen fertig ist, ` +
-          `läuft ihre Mutter zum Esstisch. Sie sagt: ` +
-          `Der Tisch ist nicht gedeckt!“`,
+          `läuft ihre Mutter ins Esszimmer und sieht, dass der Tisch noch nicht gedeckt ist. ` +
+          `Sie sagt: „Der Tisch ist nicht gedeckt!“`,
 
         utterance: "Der Tisch ist nicht gedeckt!",
 
@@ -876,6 +895,7 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
@@ -883,11 +903,11 @@ export const stories = [
           `Die Mutter kommt ins Wohnzimmer und sagt zu Anna: „Das Abendessen ` +
           `ist bald fertig. Bitte deck schon mal den Tisch.“ ` +
           `Anna bleibt vor dem Fernseher sitzen. Als das Essen fertig ist, ` +
-          `läuft ihre Mutter zum Esstisch. Sie sagt: ` +
-          `„Wir brauchen noch Geschirr und dann können wir auch schon essen.“`,
+          `läuft ihre Mutter ins Esszimmer und sieht, dass der Tisch noch nicht gedeckt ist. Sie sagt: ` +
+          `„Keine Sorge. Komm, wir decken den Tisch jetzt zusammen und dann können wir auch schon essen.“`,
 
         utterance:
-          "Wir brauchen noch Geschirr und dann können wir auch schon essen.",
+          "Keine Sorge. Komm, wir decken den Tisch jetzt zusammen und dann können wir auch schon essen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -919,11 +939,11 @@ export const stories = [
     level: 2,
     latinPosition: 1,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
-        "Ist die Schultasche zu diesem Zeitpunkt leer oder gepackt?",
+        "Ist die Tasche zu diesem Zeitpunkt leer oder gepackt?",
 
         options: [
         {
@@ -939,6 +959,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -976,13 +997,14 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Es ist schon spät am Abend und Tobis Mutter sagt: „Bitte pack ` +
-          `deine Schultasche für morgen.“ Tobi geht in sein Zimmer und räumt ` +
-          `alle sine Bücher in seine Schultasche. Seine Mutter kommt ins Zimmer ` +
-          `und sieht, dass seine Schultasche fertig gepackt neben dem Schreibtisch ` +
+          `Es ist schon spät am Abend und Maries Mutter sagt: „Bitte pack ` +
+          `deine Tasche für den Kindergarten morgen.“ Marie geht in ihr Zimmer und räumt ` +
+          `ihre Brotzeitdose und ein paar Bilderbücher in ihre Tasche. Ihre Mutter kommt ins Zimmer ` +
+          `und sieht, dass die Tasche fertig gepackt neben dem Schreibtisch ` +
           `steht. Sie sagt: „Du hast alle deine Sachen gepackt!“`,
 
         utterance: "Du hast alle deine Sachen gepackt!",
@@ -991,15 +1013,15 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "read_book",
+              id: "read_book_marie",
               text:
-                "Tobi liest ein Buch",
+                "Marie schaut ein Bilderbuch an",
               correct: true
             },
             {
-              id: "pack_bag_more",
+              id: "pack_bag_more_marie",
               text:
-                "Tobi holt noch mehr Bücher und packt sie in seine Schultasche",
+                "Marie holt noch mehr Bilderbücher und packt sie in ihre Tasche",
               correct: false
             }
           ]
@@ -1014,28 +1036,29 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Marie.jpg",
         condition: "criticism",
 
         storyText:
-          `Es ist schon spät am Abend und Tobis Mutter sagt: „Bitte pack ` +
-          `deine Schultasche für morgen.“ Tobi geht in sein Zimmer und fängt an, ` +
-          `ein Buch zu lesen. Seine Mutter kommt ins Zimmer und sieht, dass ` +
-          `Tobis Schulbücher noch alle auf seinem Schreibtisch liegen. Sie sagt: ` +
-          `„Du hast deine Schultasche nicht gepackt!“`,
+          `Es ist schon spät am Abend und Maries Mutter sagt: „Bitte pack ` +
+          `deine Tasche für den Kindergarten morgen.“ Marie geht in ihr Zimmer und fängt an, ` +
+          `ein Bilderbuch anzuschauen. Ihre Mutter kommt ins Zimmer und sieht, dass ` +
+          `Maries Brotzeitdose und Bilderbücher noch auf dem Boden liegen. Sie sagt: ` +
+          `„Du hast deine Tasche nicht gepackt!“`,
 
-        utterance: "Du hast deine Schultasche nicht gepackt!",
+        utterance: "Du hast deine Tasche nicht gepackt!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "pack_bag",
-              text: "Tobi packt seine Schultasche",
+              id: "pack_bag_marie",
+              text: "Marie packt ihre Tasche",
               correct: true
             },
             {
-              id: "read",
-              text: "Tobi liest weiter sein Buch",
+              id: "read_marie",
+              text: "Marie schaut weiter ihr Buch an",
               correct: false
             }
           ]
@@ -1050,6 +1073,7 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -1093,7 +1117,7 @@ export const stories = [
     level: 2,
     latinPosition: 2,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -1113,11 +1137,12 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
-          `Anna spielt in ihrem Zimmer. Ihre Mutter kommt herein und sagt: ` +
-          `„Es ist schon spät. Bitte mach dich fertig fürs Bett.“ Ihre Mutter ` +
+          `Anna spielt in ihrem Zimmer. Sie trägt noch ihre normale Kleidung. Ihre Mutter kommt herein und sagt: ` +
+          `„Es ist wirklich schon spät und morgen ist Schule. Bitte mach dich fertig fürs Bett.“ Ihre Mutter ` +
           `geht wieder hinaus und Anna spielt weiter. Als Annas Mutter zurückkommt, ` +
           `sagt sie: „Du bist ja schon bettfertig!“`,
 
@@ -1148,11 +1173,12 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Anna.jpg",
         condition: "praise",
 
         storyText:
-          `Anna spielt in ihrem Zimmer. Ihre Mutter kommt herein und sagt: ` +
-          `„Es ist schon spät. Bitte mach dich fertig fürs Bett.“ Ihre Mutter ` +
+          `Anna spielt in ihrem Zimmer. Sie trägt noch ihre normale Kleidung. Ihre Mutter kommt herein und sagt: ` +
+          `„Es ist wirklich schon spät und morgen ist Schule. Bitte mach dich fertig fürs Bett.“ Ihre Mutter ` +
           `geht wieder hinaus. Anna zieht ihren Schlafanzug an und putzt sich die ` +
           `Zähne. Als Annas Mutter zurückkommt, sagt sie: „Du bist ja schon bettfertig!“`,
 
@@ -1185,11 +1211,12 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
-          `Anna spielt in ihrem Zimmer. Ihre Mutter kommt herein und sagt: ` +
-          `„Es ist schon spät. Bitte mach dich fertig fürs Bett.“ Ihre Mutter ` +
+          `Anna spielt in ihrem Zimmer. Sie trägt noch ihre normale Kleidung. Ihre Mutter kommt herein und sagt: ` +
+          `„Es ist wirklich schon spät und morgen ist Schule. Bitte mach dich fertig fürs Bett.“ Ihre Mutter ` +
           `geht wieder hinaus und Anna spielt weiter. Als Annas Mutter zurückkommt, ` +
           `sagt sie: „Du bist ja noch gar nicht bettfertig!“`,
 
@@ -1220,11 +1247,12 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
-          `Anna spielt in ihrem Zimmer. Ihre Mutter kommt herein und sagt: ` +
-          `„Es ist schon spät. Bitte mach dich fertig fürs Bett.“ Ihre Mutter ` +
+          `Anna spielt in ihrem Zimmer. Sie trägt noch ihre normale Kleidung. Ihre Mutter kommt herein und sagt: ` +
+          `„Es ist wirklich schon spät und morgen ist Schule. Bitte mach dich fertig fürs Bett.“ Ihre Mutter ` +
           `geht wieder hinaus und Anna spielt weiter. Als Annas Mutter zurückkommt, ` +
           `sagt sie: „Ich bin auch schon ganz müde. Wir können uns zusammen umziehen ` +
           `und unsere Zähne putzen.“`,
@@ -1262,7 +1290,7 @@ export const stories = [
     level: 2,
     latinPosition: 3,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -1282,13 +1310,14 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
           `Tobis Mutter hat etwas zu essen für ihn vorbereitet. Sie sagt: „Wenn ` +
           `du fertig gegessen hast, räum den Teller bitte in die Spülmaschine.“ ` +
           `Tobi nickt und fängt an zu essen. Als er fertig ist, lässt er den Teller ` +
-          `auf dem Tisch stehen und spielt mit seinen Spielsachen. Seine Mutter kommt ` +
+          `auf dem Tisch stehen und spielt ein Spiel. Seine Mutter kommt ` +
           `zurück und sagt: „Du bist eine große Hilfe!“`,
 
         utterance: "Du bist eine große Hilfe!",
@@ -1303,7 +1332,7 @@ export const stories = [
             },
             {
               id: "play_with_toys",
-              text: "Tobi spielt weiter mit seinen Spielsachen",
+              text: "Tobi spielt weiter",
               correct: false
             }
           ]
@@ -1318,6 +1347,7 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -1335,7 +1365,7 @@ export const stories = [
             {
               id: "play_toys",
               text:
-                "Tobi spielt mit seinen Spielsachen",
+                "Tobi spielt ein Spiel",
               correct: true
             },
             {
@@ -1356,13 +1386,14 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
           `Tobis Mutter hat etwas zu essen für ihn vorbereitet. Sie sagt: „Wenn ` +
           `du fertig gegessen hast, räum den Teller bitte in die Spülmaschine.“ ` +
           `Tobi nickt und fängt an zu essen. Als er fertig ist, lässt er den Teller ` +
-          `auf dem Tisch stehen und spielt mit seinen Spielsachen. Seine Mutter kommt ` +
+          `auf dem Tisch stehen und spielt ein Spiel. Seine Mutter kommt ` +
           `zurück und sagt: „Du bist keine große Hilfe!“`,
 
         utterance: "Du bist keine große Hilfe!",
@@ -1377,7 +1408,7 @@ export const stories = [
             },
             {
               id: "play_with_toys",
-              text: "Tobi spielt weiter mit seinen Spielsachen",
+              text: "Tobi spielt weiter",
               correct: false
             }
           ]
@@ -1392,18 +1423,18 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
           `Tobis Mutter hat etwas zu essen für ihn vorbereitet. Sie sagt: „Wenn ` +
           `du fertig gegessen hast, räum den Teller bitte in die Spülmaschine.“ ` +
           `Tobi nickt und fängt an zu essen. Als er fertig ist, lässt er den Teller ` +
-          `auf dem Tisch stehen und spielt mit seinen Spielsachen. Seine Mutter kommt ` +
-          `zurück und sagt: „Hier stehen noch ein paar Gläser. Die können wir auch `+
-          `direkt in die Spülmaschine räumen.“`,
+          `auf dem Tisch stehen und spielt ein Spiel. Seine Mutter kommt ` +
+          `zurück und sagt: „Macht nichts! Komm, wir räumen jetzt die Spülmaschine gemeinsam ein.“`,
 
         utterance:
-          "Hier stehen noch ein paar Gläser. Die können wir auch direkt in die Spülmaschine räumen.",
+          "Macht nichts! Komm, wir räumen jetzt die Spülmaschine gemeinsam ein.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -1415,7 +1446,7 @@ export const stories = [
             },
             {
               id: "play_with_toys",
-              text: "Tobi spielt weiter mit seinen Spielsachen",
+              text: "Tobi spielt weiter",
               correct: false
             }
           ]
@@ -1435,7 +1466,7 @@ export const stories = [
     level: 3,
     latinPosition: 0,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -1455,6 +1486,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -1469,12 +1501,12 @@ export const stories = [
           options: [
             {
               id: "clean_sofa",
-              text: "Tobi putzt das Sofa",
+              text: "Tobi sammelt die Chips auf",
               correct: true
             },
             {
               id: "watch_tv",
-              text: "Tobi schaut weiter fern",
+              text: "Tobi lässt die Chips liegen unbd schaut weiter fern",
               correct: false
             }
           ]
@@ -1489,11 +1521,12 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Tobi schaut fern und isst dabei Chips. Beim Essen passt er gut darauf auf, ` +
-          `dass keine Chips auf dem Sofa landen. Seine Mutter kommt herein und sagt: ` +
+          `Marie schaut fern und isst dabei Chips. Beim Essen passt sie gut darauf auf, ` +
+          `dass keine Chips auf dem Sofa landen. Ihre Mutter kommt herein und sagt: ` +
           `„Das Sofa sieht sehr sauber aus.“`,
 
         utterance: "Das Sofa sieht sehr sauber aus.",
@@ -1502,15 +1535,15 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "watch_tv",
+              id: "watch_tv_marie",
               text:
-                "Tobi schaut weiter fern",
+                "Marie schaut weiter fern",
               correct: true
             },
             {
-              id: "clean_sofa",
+              id: "clean_sofa_marie",
               text:
-                "Tobi putzt das Sofa",
+                "Marie putzt das Sofa",
               correct: false
             }
           ]
@@ -1525,12 +1558,13 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
           `Tobi schaut fern und isst dabei Chips. Er ist auf den Fernseher fokussiert ` +
           `und merkt nicht, dass viele der Chips auf dem Sofa und auf dem Boden landen. ` +
-          `Seine Mutter kommt herein und sagt: Du hast das ganze Sofa vollgebröselt!“`,
+          `Seine Mutter kommt herein und sagt: „Du hast das ganze Sofa vollgebröselt!“`,
 
         utterance: "Du hast das ganze Sofa vollgebröselt!",
 
@@ -1539,12 +1573,12 @@ export const stories = [
           options: [
             {
               id: "clean_sofa",
-              text: "Tobi putzt das Sofa",
+              text: "Tobi sammelt die Chips auf",
               correct: true
             },
             {
               id: "watch_tv",
-              text: "Tobi schaut weiter fern",
+              text: "Tobi lässt die Chips liegen und schaut weiter fern",
               correct: false
             }
           ]
@@ -1559,27 +1593,28 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
           `Tobi schaut fern und isst dabei Chips. Er ist auf den Fernseher fokussiert ` +
           `und merkt nicht, dass viele der Chips auf dem Sofa und auf dem Boden landen. ` +
-          `Seine Mutter kommt herein und sagt: „Das macht nichts. Ich hole schnell den Staubsauger.“`,
+          `Seine Mutter kommt herein und sagt: „Nicht so schlimm! Komm, wir sammeln die Chips schnell zusammen auf und dann kannst du weiterschauen.“`,
 
         utterance:
-          "Das macht nichts. Ich hole schnell den Staubsauger.",
+          "Nicht so schlimm! Komm, wir sammeln die Chips schnell zusammen auf und dann kannst du weiterschauen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
               id: "clean_sofa_together",
-              text: "Tobi und seine Mutter putzen das Sofa",
+              text: "Tobi und seine Mutter sammeln die Chips auf",
               correct: true
             },
             {
               id: "watch_tv",
-              text: "Tobi schaut weiter fern",
+              text: "Tobi lässt die Chips liegen und schaut weiter fern",
               correct: false
             }
           ]
@@ -1599,7 +1634,7 @@ export const stories = [
     level: 3,
     latinPosition: 1,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -1619,6 +1654,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -1638,7 +1674,7 @@ export const stories = [
             },
             {
               id: "water_plants",
-              text: "Anna gießt die Blumen",
+              text: "Anna holt neues Wasser und gießt die Blumen weiter",
               correct: false
             }
           ]
@@ -1653,6 +1689,7 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -1668,7 +1705,7 @@ export const stories = [
             {
               id: "water_plants",
               text:
-                "Anna gießt die Blumen",
+                "Anna holt neues Wasser und gießt die Blumen weiter",
               correct: true
             },
             {
@@ -1689,6 +1726,7 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -1708,7 +1746,7 @@ export const stories = [
             },
             {
               id: "water_plants",
-              text: "Anna gießt die Blumen",
+              text: "Anna holt neues Wasser und gießt die Blumen weiter",
               correct: false
             }
           ]
@@ -1723,6 +1761,7 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
@@ -1743,7 +1782,7 @@ export const stories = [
             },
             {
               id: "water_plants",
-              text: "Anna gießt die Blumen",
+              text: "Anna holt neues Wasser und gießt die Blumen weiter",
               correct: false
             }
           ]
@@ -1763,11 +1802,11 @@ export const stories = [
     level: 3,
     latinPosition: 2,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
-        "Ist Tobis Platz zu diesem Zeitpunkt vollgekleckert oder sauber?",
+        "Ist der Platz zu diesem Zeitpunkt vollgekleckert oder sauber?",
 
         options: [
         {
@@ -1783,6 +1822,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -1803,7 +1843,7 @@ export const stories = [
             },
             {
               id: "eat",
-              text: "Tobi isst weiter",
+              text: "Tobi isst unordentlich weiter",
               correct: false
             }
           ]
@@ -1818,12 +1858,13 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Tobi und seine Mutter essen zum Abendessen Spaghetti mit Tomatensoße. ` +
-          `Tobi isst sehr langsam und vorsichtig, so dass weder Spaghetti noch Soße ` +
-          `neben seinem Teller landen. Seine Mutter sagt: ` +
+          `Marie und ihre Mutter essen zum Abendessen Spaghetti mit Tomatensoße. ` +
+          `Marie isst sehr langsam und vorsichtig, so dass weder Spaghetti noch Soße ` +
+          `neben ihrem Teller landen. Seine Mutter sagt: ` +
           `„Du isst aber sehr ordentlich.“`,
 
         utterance: "Du isst aber sehr ordentlich.",
@@ -1832,15 +1873,15 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "eat",
+              id: "eat_marie",
               text:
-                "Tobi isst weiter",
+                "Marie isst weiter",
               correct: true
             },
             {
-              id: "clean_spot",
+              id: "clean_spot_marie",
               text:
-                "Tobi macht seinen Platz sauber",
+                "Marie macht ihren Platz sauber",
               correct: false
             }
           ]
@@ -1855,6 +1896,7 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -1875,7 +1917,7 @@ export const stories = [
             },
             {
               id: "eat",
-              text: "Tobi isst weiter",
+              text: "Tobi isst unordentlich weiter",
               correct: false
             }
           ]
@@ -1890,16 +1932,17 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
           `Tobi und seine Mutter essen zum Abendessen Spaghetti mit Tomatensoße. ` +
           `Tobi isst sehr schnell. Dabei fallen viele Spaghetti auf den Boden ` +
           `und Soße landet neben seinem Teller. Seine Mutter sagt: ` +
-          `„Die Spaghetti sind wirklich schwer zu essen. Ich hole schnell einen Lappen.“`,
+          `„Macht nichts! Die Spaghetti sind wirklich schwer zu essen. Ich hole schnell einen Lappen.“`,
 
         utterance:
-          "Die Spaghetti sind wirklich schwer zu essen. Ich hole schnell einen Lappen.",
+          "Macht nichts! Die Spaghetti sind wirklich schwer zu essen. Ich hole schnell einen Lappen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -1911,7 +1954,7 @@ export const stories = [
             },
             {
               id: "eat",
-              text: "Tobi isst weiter",
+              text: "Tobi isst unordentlich weiter",
               correct: false
             }
           ]
@@ -1931,11 +1974,11 @@ export const stories = [
     level: 3,
     latinPosition: 3,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
-        "Fährt Anna zu diesem Zeitpunkt mit Helm oder ohne Helm Fahrrad?",
+        "Fährt sie zu diesem Zeitpunkt mit Helm oder ohne Helm Fahrrad?",
 
         options: [
         {
@@ -1951,6 +1994,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -1985,11 +2029,12 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Anna fährt vor dem Haus mit ihrem Fahrrad hin und her. Sie trägt einen Helm. ` +
-          `Ihre Mutter kommt nach draußen und Anna hält neben ihr an. ` +
+          `Marie fährt vor dem Haus mit ihrem Fahrrad hin und her. Sie trägt einen Helm. ` +
+          `Ihre Mutter kommt nach draußen und Marie hält neben ihr an. ` +
           `Ihre Mutter sagt: „Du hast daran gedacht, deinen Helm aufzusetzen.“`,
 
         utterance: "Du hast daran gedacht, deinen Helm aufzusetzen.",
@@ -1998,15 +2043,15 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "ride_bike_helmet",
+              id: "ride_bike_helmet_marie",
               text:
-                "Anna fährt weiter Fahrrad",
+                "Marie fährt weiter Fahrrad",
               correct: true
             },
             {
-              id: "get_another_helmet",
+              id: "get_another_helmet_marie",
               text:
-                "Anna holt einen weiteren Helm",
+                "Marie holt einen weiteren Helm",
               correct: false
             }
           ]
@@ -2021,11 +2066,12 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Marie.jpg",
         condition: "criticism",
 
         storyText:
-          `Anna fährt vor dem Haus mit ihrem Fahrrad hin und her. Sie trägt keinen Helm. ` +
-          `Ihre Mutter kommt nach draußen und Anna hält neben ihr an. ` +
+          `Marie fährt vor dem Haus mit ihrem Fahrrad hin und her. Sie trägt keinen Helm. ` +
+          `Ihre Mutter kommt nach draußen und Marie hält neben ihr an. ` +
           `Ihre Mutter sagt: „Du hast keinen Helm auf!“`,
 
         utterance: "Du hast keinen Helm auf!",
@@ -2034,13 +2080,13 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "get_helmet",
-              text: "Anna holt einen Helm",
+              id: "get_helmet_marie",
+              text: "Marie holt einen Helm",
               correct: true
             },
             {
-              id: "ride_bike",
-              text: "Anna fährt ohne Helm weiter Fahrrad",
+              id: "ride_bike_marie",
+              text: "Marie fährt ohne Helm weiter Fahrrad",
               correct: false
             }
           ]
@@ -2055,11 +2101,12 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Marie.jpg",
         condition: "control",
 
         storyText:
-          `Anna fährt vor dem Haus mit ihrem Fahrrad hin und her. Sie trägt keinen Helm. ` +
-          `Ihre Mutter kommt nach draußen und Anna hält neben ihr an. ` +
+          `Marie fährt vor dem Haus mit ihrem Fahrrad hin und her. Sie trägt keinen Helm. ` +
+          `Ihre Mutter kommt nach draußen und Marie hält neben ihr an. ` +
           `Ihre Mutter sagt: „Ich bringe dir noch schnell deinen Helm, dann kannst du weiterfahren.“`,
 
         utterance:
@@ -2069,13 +2116,13 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "get_helmet_mom",
-              text: "Annas Mutter holt einen Helm für Anna",
+              id: "get_helmet_mom_marie",
+              text: "Maries Mutter holt einen Helm für Marie",
               correct: true
             },
             {
-              id: "ride_bike",
-              text: "Anna fährt ohne Helm weiter Fahrrad",
+              id: "ride_bike_marie",
+              text: "Marie fährt ohne Helm weiter Fahrrad",
               correct: false
             }
           ]
@@ -2095,7 +2142,7 @@ export const stories = [
     level: 4,
     latinPosition: 0,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -2115,27 +2162,28 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Marie.jpg",
         condition: "irony",
 
         storyText:
-          `Anna und ihre Mutter haben zu Abend gegessen. Der ganze Tisch ist ` +
-          `voll mit Geschirr. Annas Mutter fängt an, den Tisch abzuräumen. ` +
-          `Anna holt ihr Tablet und spielt darauf, während ihre Mutter weiter aufräumt. ` + 
-          `Annas Mutter sagt: „Wenn ich das nächste Mal Hilfe brauche, weiß ich jetzt, wen ich fragen kann.“`,
+          `Marie und ihre Mutter haben zu Abend gegessen. Der ganze Tisch ist ` +
+          `voll mit Geschirr. Maries Mutter fängt an, den Tisch abzuräumen. ` +
+          `Marie läuft ins Wohnzimmer und schaut fern, während ihre Mutter weiter aufräumt. ` + 
+          `Maries Mutter sagt: „Vielen Dank für deine Hilfe!“`,
 
-        utterance: "Wenn ich das nächste Mal Hilfe brauche, weiß ich jetzt, wen ich fragen kann.",
+        utterance: "Vielen Dank für deine Hilfe!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "clear_table",
-              text: "Anna räumt den Tisch ab",
+              id: "clear_table_marie",
+              text: "Marie hilft, den Tisch abzuräumen",
               correct: true
             },
             {
-              id: "play_tablet",
-              text: "Anna spielt weiter auf ihrem Tablet",
+              id: "watch_tv_marie",
+              text: "Marie schaut weiter fern",
               correct: false
             }
           ]
@@ -2150,65 +2198,28 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Anna und ihre Mutter haben zu Abend gegessen. Der ganze Tisch ist ` +
-          `voll mit Geschirr. Anna fängt sofort von allein an, den Tisch abzuräumen. ` +
-          `Sie trägt die Teller in die Küche. Dort angekommen, räumt sie sie sofort in die Spülmaschine ein. ` + 
-          `Sie macht so weiter, bis der ganze Tisch abgeräumt ist. Annas Mutter sagt: ` +
-          `„Wenn ich das nächste Mal Hilfe brauche, weiß ich jetzt, wen ich fragen kann.“`,
+          `Marie und ihre Mutter haben zu Abend gegessen. Der ganze Tisch ist ` +
+          `voll mit Geschirr. Maries Mutter fängt an, den Tisch abzuräumen. ` +
+          `Marie läuft ins Wohnzimmer und schaut fern, während ihre Mutter weiter aufräumt. ` + 
+          `Maries Mutter sagt: „Vielen Dank für deine Hilfe!“`,
 
-        utterance: "Wenn ich das nächste Mal Hilfe brauche, weiß ich jetzt, wen ich fragen kann.",
-
-        nextQuestion: {
-          question: "Was passiert als Nächstes?",
-          options: [
-            {
-              id: "play_tablet_now",
-              text:
-                "Anna spielt auf ihrem Tablet",
-              correct: true
-            },
-            {
-              id: "clear_table_more",
-              text:
-                "Anna räumt auch die Tischdeko ab",
-              correct: false
-            }
-          ]
-        },
-
-        correctEmotion: "happy",
-
-        situationLogic: {
-          correctAnswer: "no_dishes",
-          whyTrigger: "dishes"
-        }
-      },
-
-      criticism: {
-        condition: "criticism",
-
-        storyText:
-          `Anna und ihre Mutter haben zu Abend gegessen. Der ganze Tisch ist` +
-          `voll mit Geschirr. Annas Mutter fängt an, den Tisch abzuräumen. ` +
-          `Anna holt ihr Tablet und spielt darauf, während ihre Mutter weiter aufräumt. ` + 
-          `Annas Mutter sagt: „So werde ich wohl noch eine Weile beschäftigt sein.“`,
-
-        utterance: "So werde ich wohl noch eine Weile beschäftigt sein.",
+        utterance: "Vielen Dank für deine Hilfe!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "clear_table",
-              text: "Anna räumt den Tisch ab",
+              id: "clear_table_marie",
+              text: "Marie hilft, den Tisch abzuräumen",
               correct: true
             },
             {
-              id: "play_tablet",
-              text: "Anna spielt weiter auf ihrem Tablet",
+              id: "watch_tv_marie",
+              text: "Marie schaut weiter fern",
               correct: false
             }
           ]
@@ -2218,43 +2229,79 @@ export const stories = [
 
         situationLogic: {
           correctAnswer: "dishes",
-          whyTrigger: "no_dishes"
+          whyTrigger: "dishes"
         }
       },
 
-      control: {
-        condition: "control",
+      criticism: {
+      childImage: "/Marie.jpg",
+        condition: "criticism",
 
         storyText:
-          `Anna und ihre Mutter haben zu Abend gegessen. Der ganze Tisch ist ` +
-          `voll mit Geschirr. Annas Mutter fängt an, den Tisch abzuräumen. ` +
-          `Anna holt ihr Tablet und spielt darauf, während ihre Mutter weiter aufräumt. ` + 
-          `Annas Mutter sagt: „Wenn du mir kurz hilfst, sind wir ganz schnell fertig und du kannst sofort weiterspielen.“`,
+          `Marie und ihre Mutter haben zu Abend gegessen. Der ganze Tisch ist ` +
+          `voll mit Geschirr. Maries Mutter fängt an, den Tisch abzuräumen. ` +
+          `Marie läuft ins Wohnzimmer und schaut fern, während ihre Mutter weiter aufräumt. ` + 
+          `Maries Mutter sagt: „Vielen Dank für deine Hilfe!“`,
 
-        utterance:
-          "Wenn du mir kurz hilfst, sind wir ganz schnell fertig und du kannst sofort weiterspielen.",
+        utterance: "Vielen Dank für deine Hilfe!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "clear_table_together",
-              text: "Anna und ihre Mutter räumen den Tisch ab",
+              id: "clear_table_marie",
+              text: "Marie hilft, den Tisch abzuräumen",
               correct: true
             },
             {
-              id: "play_tablet",
-              text: "Anna spielt weiter auf ihrem Tablet",
+              id: "watch_tv_marie",
+              text: "Marie schaut weiter fern",
               correct: false
             }
           ]
         },
 
-        correctEmotion: "happy",
+        correctEmotion: "angry",
 
         situationLogic: {
           correctAnswer: "dishes",
-          whyTrigger: "no_dishes"
+          whyTrigger: "dishes"
+        }
+      },
+
+      control: {
+      childImage: "/Marie.jpg",
+        condition: "control",
+
+        storyText:
+          `Marie und ihre Mutter haben zu Abend gegessen. Der ganze Tisch ist ` +
+          `voll mit Geschirr. Maries Mutter fängt an, den Tisch abzuräumen. ` +
+          `Marie läuft ins Wohnzimmer und schaut fern, während ihre Mutter weiter aufräumt. ` + 
+          `Maries Mutter sagt: „Vielen Dank für deine Hilfe!“`,
+
+        utterance: "Vielen Dank für deine Hilfe!",
+
+        nextQuestion: {
+          question: "Was passiert als Nächstes?",
+          options: [
+            {
+              id: "clear_table_marie",
+              text: "Marie hilft, den Tisch abzuräumen",
+              correct: true
+            },
+            {
+              id: "watch_tv_marie",
+              text: "Marie schaut weiter fern",
+              correct: false
+            }
+          ]
+        },
+
+        correctEmotion: "angry",
+
+        situationLogic: {
+          correctAnswer: "dishes",
+          whyTrigger: "dishes"
         }
       }
     }
@@ -2264,7 +2311,7 @@ export const stories = [
     level: 4,
     latinPosition: 1,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -2284,6 +2331,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -2318,11 +2366,12 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Tobi möchte Orangensaft in sein Glas einschenken. Er ist sehr vorsichtig, ` +
-          `sodass kein einziger Tropfen neben dem Glas landet. Seine Mutter sagt: ` +
+          `Marie möchte Orangensaft in ihr Glas einschenken. Sie ist sehr vorsichtig, ` +
+          `sodass kein einziger Tropfen neben dem Glas landet. Ihre Mutter sagt: ` +
           `„Könntest du dich heute bitte um die Getränke für uns alle kümmern?“`,
 
         utterance: "Könntest du dich heute bitte um die Getränke für uns alle kümmern?",
@@ -2331,15 +2380,15 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "pour_juice",
+              id: "pour_juice_marie",
               text:
-                "Tobi schenkt weitere Gläser ein",
+                "Marie schenkt weitere Gläser ein",
               correct: true
             },
             {
-              id: "wipe_table",
+              id: "wipe_table_marie",
               text:
-                "Tobi wischt den Tisch ab",
+                "Marie wischt den Tisch ab",
               correct: false
             }
           ]
@@ -2354,14 +2403,15 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
           `Tobi möchte Orangensaft in sein Glas einschenken. Er ist abgelenkt und ` +
           `verschüttet viel Saft auf dem Tisch. Seine Mutter sagt: ` +
-          `„Vielleicht solltest du das lieber jemand anderem überlassen.“`,
+          `Ich denke das solltest du lieber jemand anderem überlassen.“`,
 
-        utterance: "Vielleicht solltest du das lieber jemand anderem überlassen.",
+        utterance: "Ich denke das solltest du lieber jemand anderem überlassen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -2388,11 +2438,12 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Marie.jpg",
         condition: "control",
 
         storyText:
-          `Tobi möchte Orangensaft in sein Glas einschenken. Er ist abgelenkt und ` +
-          `verschüttet viel Saft auf dem Tisch. Seine Mutter sagt: ` +
+          `Marie möchte Orangensaft in ihr Glas einschenken. Sie ist abgelenkt und ` +
+          `verschüttet viel Saft auf dem Tisch. Ihre Mutter sagt: ` +
           `„Das kann jedem Mal passieren. Ich hole schnell einen Lappen.“`,
 
         utterance:
@@ -2402,13 +2453,13 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "wipe_table_together",
-              text: "Tobi und seine Mutter wischen den Tisch ab",
+              id: "wipe_table_together_marie",
+              text: "Marie und ihre Mutter wischen den Tisch ab",
               correct: true
             },
             {
-              id: "pour_juice",
-              text: "Tobi schenkt weitere Gläser ein",
+              id: "pour_juice_marie",
+              text: "Marie schenkt weitere Gläser ein",
               correct: false
             }
           ]
@@ -2428,7 +2479,7 @@ export const stories = [
     level: 4,
     latinPosition: 2,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -2448,11 +2499,12 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
-          `Ihre Mutter wartet darauf, dass Anna sich für die Schule fertig macht. ` +
-          `Endlich taucht Anna auf. Sie trägt ein Kleid, das voller Flecken ist. ` +
+          `Anna kommt in einem Kleid zum Frühstück. Beim Essen kleckert sie sich voll und auf dem Kleid ist nun ` +
+          `ein riesiger Fleck. Anna nimmt ihre Schultasche und will sich auf den Weg in die Schule machen. ` +
           `Annas Mutter sagt: „Da freue ich mich schon auf die Klassenfotos, die ihr heute macht.“`,
 
         utterance: "Da freue ich mich schon auf die Klassenfotos, die ihr heute macht.",
@@ -2482,11 +2534,12 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Anna.jpg",
         condition: "praise",
 
         storyText:
-          `Ihre Mutter wartet darauf, dass Anna sich für die Schule fertig macht. ` +
-          `Endlich taucht Anna auf. Sie trägt ein wunderschönes neues Kleid. ` +
+          `Anna kommt in einem Kleid zum Frühstück. Beim Essen kleckert sie sich voll und auf dem Kleid ist nun ein riesiger Fleck. ` +
+          `Anna zieht sich ein neues, schönes Kleid an. Dann nimmt sie ihre Schultasche und will sich auf den Weg in die Schule machen. ` +
           `Annas Mutter sagt: „Da freue ich mich schon auf die Klassenfotos, die ihr heute macht.“`,
 
         utterance: "Da freue ich mich schon auf die Klassenfotos, die ihr heute macht.",
@@ -2518,14 +2571,15 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
-          `Ihre Mutter wartet darauf, dass Anna sich für die Schule fertig macht. ` +
-          `Endlich taucht Anna auf. Sie trägt ein Kleid, das voller Flecken ist. ` +
-          `Annas Mutter sagt: „Ich glaube, so wirst du mit den Klassenfotos heute nicht zufrieden sein.“`,
+          `Anna kommt in einem Kleid zum Frühstück. Beim Essen kleckert sie sich voll und auf dem Kleid ist nun ` +
+          `ein riesiger Fleck. Anna nimmt ihre Schultasche und will sich auf den Weg in die Schule machen. ` +
+          `Annas Mutter sagt: „Du weißt aber schon, dass heute die Klassenfotos gemacht werden?“`,
 
-        utterance: "Ich glaube, so wirst du mit den Klassenfotos heute nicht zufrieden sein.",
+        utterance: "Du weißt aber schon, dass heute die Klassenfotos gemacht werden?",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -2552,15 +2606,16 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
-          `Ihre Mutter wartet darauf, dass Anna sich für die Schule fertig macht. ` +
-          `Endlich taucht Anna auf. Sie trägt ein Kleid, das voller Flecken ist. ` +
-          `Annas Mutter sagt: „Komm, wir suchen dir ein sauberes Kleid für die Klassenfotos heute aus.“`,
+          `Anna kommt in einem Kleid zum Frühstück. Beim Essen kleckert sie sich voll und auf dem Kleid ist nun ` +
+          `ein riesiger Fleck. Anna nimmt ihre Schultasche und will sich auf den Weg in die Schule machen. ` +
+          `Annas Mutter sagt: „Komm, wir suchen dir erst noch ein sauberes Kleid für die Klassenfotos heute aus.“`,
 
         utterance:
-          "Komm, wir suchen dir ein sauberes Kleid für die Klassenfotos heute aus.",
+          "Komm, wir suchen dir erst noch ein sauberes Kleid für die Klassenfotos heute aus.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -2592,7 +2647,7 @@ export const stories = [
     level: 4,
     latinPosition: 3,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -2612,12 +2667,13 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
-          `Tobi backt zum ersten Mal allein Plätzchen. Alles läuft gut, doch dann ` +
-          `lässt er sie zu lange im Ofen und die Plätzchen sind völlig verbrannt. ` +
-          `Seine Mutter kommt herein und sagt: „Wir sollten dich direkt für den nächsten Backwettbewerb anmelden.“`,
+          `Tobi backt zum ersten Mal allein Plätzchen. Alles läuft gut. Während die Plätzchen im Ofen sind, ` +
+          `geht Tobi ins Wohnzimmer und schaut fern. Dabei vergisst er die Plätzchen im Ofen. Als seine Mutter in die Küche kommt, sind die Plätzchen völlig verbrannt. ` +
+          `Tobi kommt in die Küche und seine Mutter sagt: „Wir sollten dich direkt für den nächsten Backwettbewerb anmelden.“`,
 
         utterance: "Wir sollten dich direkt für den nächsten Backwettbewerb anmelden.",
 
@@ -2646,12 +2702,13 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Tobi.jpg",
         condition: "praise",
 
         storyText:
-          `Tobi backt zum ersten Mal allein Plätzchen. Alles läuft gut ` +
-          `und die Plätzchen werden wunderschön. Seine Mutter kommt herein und sagt: ` +
-          `„Wir sollten dich direkt für den nächsten Backwettbewerb anmelden.“`,
+          `Tobi backt zum ersten Mal allein Plätzchen. Alles läuft gut. Während die Plätzchen im Ofen sind, ` +
+          `räumt Tobi die Küche auf und hat den Ofen dabei stets im Blick. Danach richtet er die wunderschönen Plätzchen auf einem Teller an. ` +
+          `Seine Mutter kommt herein und sagt: „Wir sollten dich direkt für den nächsten Backwettbewerb anmelden.“`,
 
         utterance: "Wir sollten dich direkt für den nächsten Backwettbewerb anmelden.",
 
@@ -2682,14 +2739,15 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
-          `Tobi backt zum ersten Mal allein Plätzchen. Alles läuft gut, doch dann ` +
-          `lässt er sie zu lange im Ofen und die Plätzchen sind völlig verbrannt. ` +
-          `Seine Mutter kommt herein und sagt: „Ich glaube, dich sollte ich noch nicht in der Küche allein lassen.“`,
+          `Tobi backt zum ersten Mal allein Plätzchen. Alles läuft gut. Während die Plätzchen im Ofen sind, ` +
+          `geht Tobi ins Wohnzimmer und schaut fern. Dabei vergisst er die Plätzchen im Ofen. Als seine Mutter in die Küche kommt, sind die Plätzchen völlig verbrannt. ` +
+          `Tobi kommt in die Küche und seine Mutter sagt: „Ich glaube dich sollte ich noch nicht in der Küche allein lassen.“`,
 
-        utterance: "Ich glaube, dich sollte ich noch nicht in der Küche allein lassen.",
+        utterance: "Ich glaube dich sollte ich noch nicht in der Küche allein lassen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -2716,12 +2774,13 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
-          `Tobi backt zum ersten Mal allein Plätzchen. Alles läuft gut, doch dann ` +
-          `lässt er sie zu lange im Ofen und die Plätzchen sind völlig verbrannt. ` +
-          `Seine Mutter kommt herein und sagt: „Nicht so schlimm. Wir probieren es einfach nochmal.“`,
+          `Tobi backt zum ersten Mal allein Plätzchen. Alles läuft gut. Während die Plätzchen im Ofen sind, ` +
+          `geht Tobi ins Wohnzimmer und schaut fern. Dabei vergisst er die Plätzchen im Ofen. Als seine Mutter in die Küche kommt, sind die Plätzchen völlig verbrannt. ` +
+          `Tobi kommt in die Küche und seine Mutter sagt: „Nicht so schlimm. Wir probieren es einfach nochmal.“`,
 
         utterance:
           "Nicht so schlimm. Wir probieren es einfach nochmal.",
@@ -2756,7 +2815,7 @@ export const stories = [
     level: 5,
     latinPosition: 0,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -2776,15 +2835,16 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
           `Tobi hat draußen gespielt und seine Schuhe sind voller Matsch. Er läuft ` +
           `durch den Gang, ohne seine Schuhe auszuziehen. Beim Abendessen fragt die Mutter ` +
           `Tobi, wie sein Tag war. Tobi sagt: „Ich war mit meinen Freunden auf dem Spielplatz. ` +
-          `Das hat so viel Spaß gemacht!“ Seine Mutter antwortet: „Toll! Und der Gang ist ganz sauber geblieben.“`,
+          `Das hat so viel Spaß gemacht!“ Seine Mutter antwortet: „Und der Gang ist auch ganz sauber geblieben.“`,
 
-        utterance: "Toll! Und der Gang ist ganz sauber geblieben.",
+        utterance: "Und der Gang ist auch ganz sauber geblieben.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -2795,8 +2855,8 @@ export const stories = [
               correct: true
             },
             {
-              id: "keep_eating",
-              text: "Tobi isst weiter",
+              id: "sit_on_sofa",
+              text: "Tobi setzt sich aufs Sofa",
               correct: false
             }
           ]
@@ -2811,23 +2871,24 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Tobi.jpg",
         condition: "praise",
 
         storyText:
           `Tobi hat draußen gespielt und seine Schuhe sind voller Matsch. Bevor er durch ` +
-          `den Gang läuft, zieht er seine dreckigen Schuhe aus. Beim Abendessen fragt die Mutter ` +
+          `den Gang läuft, zieht er seine dreckigen Schuhe aus, um nichts dreckig zu machen. Beim Abendessen fragt die Mutter ` +
           `Tobi, wie sein Tag war. Tobi sagt: „Ich war mit meinen Freunden auf dem Spielplatz. ` +
-          `Das hat so viel Spaß gemacht!“ Seine Mutter antwortet: „Toll! Und der Gang ist ganz sauber geblieben.“`,
+          `Das hat so viel Spaß gemacht!“ Seine Mutter antwortet: „Und der Gang ist auch ganz sauber geblieben.“`,
 
-        utterance: "Toll! Und der Gang ist ganz sauber geblieben.",
+        utterance: "Und der Gang ist auch ganz sauber geblieben.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "keep_eating",
+              id: "sit_on_sofa",
               text:
-                "Tobi isst weiter",
+                "Tobi setzt sich aufs Sofa",
               correct: true
             },
             {
@@ -2848,15 +2909,16 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
           `Tobi hat draußen gespielt und seine Schuhe sind voller Matsch. Er läuft ` +
           `durch den Gang, ohne seine Schuhe auszuziehen. Beim Abendessen fragt die Mutter ` +
           `Tobi, wie sein Tag war. Tobi sagt: „Ich war mit meinen Freunden auf dem Spielplatz. ` +
-          `Das hat so viel Spaß gemacht!“ Seine Mutter antwortet: „Toll! Aber du hast den Gang mit deinen Schuhen ganz dreckig gemacht!“`,
+          `Das hat so viel Spaß gemacht!“ Seine Mutter antwortet: „Du hast den Gang mit deinen Schuhen ganz dreckig gemacht!“`,
 
-        utterance: "Toll! Aber du hast den Gang mit deinen Schuhen ganz dreckig gemacht!",
+        utterance: "Du hast den Gang mit deinen Schuhen ganz dreckig gemacht!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -2867,8 +2929,8 @@ export const stories = [
               correct: true
             },
             {
-              id: "keep_eating",
-              text: "Tobi isst weiter",
+              id: "sit_on_sofa",
+              text: "Tobi setzt sich aufs Sofa",
               correct: false
             }
           ]
@@ -2883,6 +2945,7 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -2903,8 +2966,8 @@ export const stories = [
               correct: true
             },
             {
-              id: "keep_eating",
-              text: "Tobi isst weiter",
+              id: "sit_on_sofa",
+              text: "Tobi setzt sich aufs Sofa",
               correct: false
             }
           ]
@@ -2924,7 +2987,7 @@ export const stories = [
     level: 5,
     latinPosition: 1,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -2944,12 +3007,13 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
           `Anna backt einen Kuchen und richtet dabei in der Küche ein großes Chaos an. ` +
-          `Bevor sie aufräumen kann, muss sie zu ihrem Tennistraining los. Ihre Mutter ` +
-          `fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
+          `Anstatt aufzuräumen, geht sie in ihr Zimmer. Später fährt ihre Mutter sie ` +
+          `mit dem Auto zum Tennistraining. Anna fragt: „Kann ich mich direkt nach dem ` +
           `Training mit einer Freundin treffen?“ Ihre Mutter antwortet: ` +
           `„Klar, schließlich hast du nach dem Backen alles aufgeräumt.“`,
 
@@ -2980,12 +3044,13 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Anna.jpg",
         condition: "praise",
 
         storyText:
           `Anna backt einen Kuchen und richtet dabei in der Küche ein großes Chaos an. ` +
-          `Bevor sie zum Tennistraining geht, räumt sie die ganze Küche auf. Ihre Mutter ` +
-          `fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
+          `Danach räumt sie die ganze Küche gründlich auf. Später fährt ihre Mutter sie ` +
+          `mit dem Auto zum Tennistraining. Anna fragt: „Kann ich mich direkt nach dem ` +
           `Training mit einer Freundin treffen?“ Ihre Mutter antwortet: ` +
           `„Klar, schließlich hast du nach dem Backen alles aufgeräumt.“`,
 
@@ -3018,12 +3083,13 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
           `Anna backt einen Kuchen und richtet dabei in der Küche ein großes Chaos an. ` +
-          `Bevor sie aufräumen kann, muss sie zu ihrem Tennistraining los. Ihre Mutter ` +
-          `fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
+          `Anstatt aufzuräumen, geht sie in ihr Zimmer. Später fährt ihre Mutter sie ` +
+          `mit dem Auto zum Tennistraining. Anna fragt: „Kann ich mich direkt nach dem ` +
           `Training mit einer Freundin treffen?“ Ihre Mutter antwortet: ` +
           `„Nein, du hast die Küche noch nicht aufgeräumt.“`,
 
@@ -3054,12 +3120,13 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
           `Anna backt einen Kuchen und richtet dabei in der Küche ein großes Chaos an. ` +
-          `Bevor sie aufräumen kann, muss sie zu ihrem Tennistraining los. Ihre Mutter ` +
-          `fährt sie mit dem Auto dorthin. Anna fragt: „Kann ich mich direkt nach dem ` +
+          `Anstatt aufzuräumen, geht sie in ihr Zimmer. Später fährt ihre Mutter sie ` +
+          `mit dem Auto zum Tennistraining. Anna fragt: „Kann ich mich direkt nach dem ` +
           `Training mit einer Freundin treffen?“ Ihre Mutter antwortet: ` +
           `„Wir räumen nach dem Training noch schnell die Küche auf und dann kannst du das gerne machen.“`,
 
@@ -3096,7 +3163,7 @@ export const stories = [
     level: 5,
     latinPosition: 2,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -3116,6 +3183,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -3123,9 +3191,9 @@ export const stories = [
           `lässt er die Bücher auf dem ganzen Boden verteilt liegen. Abends sitzen ` +
           `er und seine Mutter auf dem Sofa, und Tobi erzählt ihr: „Es hat heute den ganzen Tag geregnet ` +
           `und ich musste immer drinnen bleiben. Aber mir war trotzdem nicht langweilig.“ ` +
-          `Seine Mama sagt: „Super! Und du hast auch alle Bücher wieder ins Regal geräumt.“`,
+          `Seine Mama sagt: „Du hast auch alle Bücher wieder ganz ordentlich ins Regal geräumt.“`,
 
-        utterance: "Super! Und du hast auch alle Bücher wieder ins Regal geräumt.",
+        utterance: "Du hast auch alle Bücher wieder ganz ordentlich ins Regal geräumt.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3152,6 +3220,7 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -3159,9 +3228,9 @@ export const stories = [
           `räumt er die Bücher alle wieder ordentlich ins Regal. Abends sitzen ` +
           `er und seine Mutter auf dem Sofa, und Tobi erzählt ihr: „Es hat heute den ganzen Tag geregnet ` +
           `und ich musste immer drinnen bleiben. Aber mir war trotzdem nicht langweilig.“ ` +
-          `Seine Mama sagt: „Super! Und du hast auch alle Bücher wieder ins Regal geräumt.“`,
+          `Seine Mama sagt: „Du hast auch alle Bücher wieder ganz ordentlich ins Regal geräumt.“`,
 
-        utterance: "Super! Und du hast auch alle Bücher wieder ins Regal geräumt.",
+        utterance: "Du hast auch alle Bücher wieder ganz ordentlich ins Regal geräumt.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3190,6 +3259,7 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -3197,9 +3267,9 @@ export const stories = [
           `lässt er die Bücher auf dem ganzen Boden verteilt liegen. Abends sitzen ` +
           `er und seine Mutter auf dem Sofa, und Tobi erzählt ihr: „Es hat heute den ganzen Tag geregnet ` +
           `und ich musste immer drinnen bleiben. Aber mir war trotzdem nicht langweilig.“ ` +
-          `Seine Mama sagt: „Super! Aber du hast die Bücher alle auf dem Boden liegen lassen.“`,
+          `Seine Mama sagt: „Du hast die Bücher alle kreuz und quer auf dem Boden liegen lassen.“`,
 
-        utterance: "Super! Aber du hast die Bücher alle auf dem Boden liegen lassen.",
+        utterance: "Du hast die Bücher alle kreuz und quer auf dem Boden liegen lassen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3226,14 +3296,15 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Marie.jpg",
         condition: "control",
 
         storyText:
-          `Tobi holt ein Buch nach dem anderen aus dem Regal und liest darin. Am Ende ` +
-          `lässt er die Bücher auf dem ganzen Boden verteilt liegen. Abends sitzen ` +
-          `er und seine Mutter auf dem Sofa, und Tobi erzählt ihr: „Es hat heute den ganzen Tag geregnet ` +
+          `Marie holt ein Bilderbuch nach dem anderen aus dem Regal und schaut sie sich an. Am Ende ` +
+          `lässt sie die Bücher auf dem ganzen Boden verteilt liegen. Abends sitzen ` +
+          `sie und ihre Mutter auf dem Sofa, und Marie erzählt ihr: „Es hat heute den ganzen Tag geregnet ` +
           `und ich musste immer drinnen bleiben. Aber mir war trotzdem nicht langweilig.“ ` +
-          `Seine Mama sagt: „Super! Komm, wir räumen die Bücher wieder ins Regal und dabei kannst du mir von den Geschichten erzählen.“`,
+          `Ihre Mama sagt: „Super! Komm, wir räumen die Bücher wieder ins Regal und dabei kannst du mir von den Geschichten erzählen.“`,
 
         utterance:
           "Super! Komm, wir räumen die Bücher wieder ins Regal und dabei kannst du mir von den Geschichten erzählen.",
@@ -3242,13 +3313,13 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "put_away_books_together",
-              text: "Tobi und seine Mutter räumen die Bücher ins Regal",
+              id: "put_away_books_together_marie",
+              text: "Marie und ihre Mutter räumen die Bücher ins Regal",
               correct: true
             },
             {
-              id: "keep_sitting",
-              text: "Tobi bleibt auf dem Sofa sitzen",
+              id: "keep_sitting_marie",
+              text: "Marie bleibt auf dem Sofa sitzen",
               correct: false
             }
           ]
@@ -3268,26 +3339,27 @@ export const stories = [
     level: 5,
     latinPosition: 3,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
-        "Ist die Tasche zu diesem Zeitpunkt ausgepackt oder voller Badesachen?",
+        "Sind die nassen Badesachen zu diesem Zeitpunkt aufgehängt oder in der Tasche?",
 
         options: [
         {
-            id: "empty_bag",
-            text: "Ausgepackt"
+            id: "on_the_line",
+            text: "Aufgehängt"
         },
         {
-            id: "full_bag",
-            text: "Voller Badesachen"
+            id: "in_the_bag",
+            text: "In der Tasche"
         }
         ]
     },
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -3295,16 +3367,16 @@ export const stories = [
           `direkt am Eingang ab. Dann geht sie direkt in die Küche und isst etwas. ` +
           `Ihre Mutter kommt in die Küche. Anna sagt: „Hallo, Mama! ` +
           `Ich hatte so viel Spaß im Schwimmbad mit meinen Freunden.“ Ihre Mutter antwortet: ` +
-          `„Das freut mich! Und deine Tasche hast du auch direkt ausgepackt.“`,
+          `„Und deine nassen Badesachen hast du auch direkt aufgehängt.“`,
 
-        utterance: "Das freut mich! Und deine Tasche hast du auch direkt ausgepackt.",
+        utterance: "Und deine nassen Badesachen hast du auch direkt aufgehängt.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
               id: "empty_the_bag",
-              text: "Anna packt ihre Tasche aus",
+              text: "Anna hängt ihre Badesachen auf",
               correct: true
             },
             {
@@ -3318,22 +3390,23 @@ export const stories = [
         correctEmotion: "angry",
 
         situationLogic: {
-          correctAnswer: "full_bag",
-          whyTrigger: "full_bag"
+          correctAnswer: "in_the_bag",
+          whyTrigger: "in_the_bag"
         }
       },
 
       praise: {
+      childImage: "/Anna.jpg",
         condition: "praise",
 
         storyText:
           `Anna kommt vom Schwimmbad nach Hause und packt ihre Tasche mit den nassen Badesachen ` +
-          `direkt aus. Dann geht sie in die Küche und isst etwas. ` +
+          `direkt aus. Nachdem sie die Badesachen aufgehängt hat, geht sie in die Küche und isst etwas. ` +
           `Ihre Mutter kommt in die Küche. Anna sagt: „Hallo, Mama! ` +
           `Ich hatte so viel Spaß im Schwimmbad mit meinen Freunden.“ Ihre Mutter antwortet: ` +
-          `„Das freut mich! Und deine Tasche hast du auch direkt ausgepackt.“`,
+          `„Und deine nassen Badesachen hast du auch direkt aufgehängt.“`,
 
-        utterance: "Das freut mich! Und deine Tasche hast du auch direkt ausgepackt.",
+        utterance: "Und deine nassen Badesachen hast du auch direkt aufgehängt.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3347,7 +3420,7 @@ export const stories = [
             {
               id: "empty_the_bag_again",
               text:
-                "Anna holt ihre bereits leere Tasche wieder hervor",
+                "Anna hängt noch andere Sachen auf die Wäscheleine",
               correct: false
             }
           ]
@@ -3356,12 +3429,13 @@ export const stories = [
         correctEmotion: "happy",
 
         situationLogic: {
-          correctAnswer: "empty_bag",
-          whyTrigger: "full_bag"
+          correctAnswer: "on_the_line",
+          whyTrigger: "in_the_bag"
         }
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -3369,16 +3443,16 @@ export const stories = [
           `direkt am Eingang ab. Dann geht sie direkt in die Küche und isst etwas. ` +
           `Ihre Mutter kommt in die Küche. Anna sagt: „Hallo, Mama! ` +
           `Ich hatte so viel Spaß im Schwimmbad mit meinen Freunden.“ Ihre Mutter antwortet: ` +
-          `„Das freut mich! Aber du hast deine Tasche mit den nassen Badesachen nicht ausgepackt.“`,
+          `„Du hast deine nassen Badesachen noch nicht aufgehängt.“`,
 
-        utterance: "Das freut mich! Aber du hast deine Tasche mit den nassen Badesachen nicht ausgepackt.",
+        utterance: "Du hast deine nassen Badesachen noch nicht aufgehängt.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
               id: "empty_the_bag",
-              text: "Anna packt ihre Tasche aus",
+              text: "Anna hängt ihre Badesachen auf",
               correct: true
             },
             {
@@ -3392,12 +3466,13 @@ export const stories = [
         correctEmotion: "angry",
 
         situationLogic: {
-          correctAnswer: "full_bag",
-          whyTrigger: "empty_bag"
+          correctAnswer: "in_the_bag",
+          whyTrigger: "on_the_line"
         }
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
@@ -3405,17 +3480,17 @@ export const stories = [
           `direkt am Eingang ab. Dann geht sie direkt in die Küche und isst etwas. ` +
           `Ihre Mutter kommt in die Küche. Anna sagt: „Hallo, Mama! ` +
           `Ich hatte so viel Spaß im Schwimmbad mit meinen Freunden.“ Ihre Mutter antwortet: ` +
-          `„Das freut mich! Ich baue den Wäscheständer auf und dann können wir deine nassen Badesachen noch schnell aufhängen.“`,
+          `„Das freut mich! Hol bitte deine Tasche und dann können wir deine nassen Badesachen noch schnell aufhängen.“`,
 
         utterance:
-          "Das freut mich! Ich baue den Wäscheständer auf und dann können wir deine nassen Badesachen noch schnell aufhängen.",
+          "Das freut mich! Hol bitte deine Tasche und dann können wir deine nassen Badesachen noch schnell aufhängen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
               id: "empty_the_bag_together",
-              text: "Anna und ihre Mutter packen ihre Tasche aus",
+              text: "Anna und ihre Mutter hängen die Badesachen auf",
               correct: true
             },
             {
@@ -3429,8 +3504,8 @@ export const stories = [
         correctEmotion: "happy",
 
         situationLogic: {
-          correctAnswer: "full_bag",
-          whyTrigger: "empty_bag"
+          correctAnswer: "in_the_bag",
+          whyTrigger: "on_the_line^"
         }
       }
     }
@@ -3440,7 +3515,7 @@ export const stories = [
     level: 6,
     latinPosition: 0,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -3460,6 +3535,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -3467,9 +3543,9 @@ export const stories = [
           `in der Küche Plätzchen. Aus dem Fenster kann Tobis Mutter sehen, wie er ausgiebig ` +
           `den Hund streichelt. Später kommt Tobi nach drinnen und läuft direkt in die Küche. ` +
           `Anna knetet gerade den Teig. Tobi geht zu ihr hin und sagt: „Mama, ich helfe Anna mit dem Teig.“ ` +
-          `Seine Mutter antwortet: „Klar! Da können wir uns heute auf richtig leckere Plätzchen freuen.“`,
+          `Seine Mutter antwortet: „Da können wir uns heute auf richtig leckere Plätzchen freuen.“`,
 
-        utterance: "Klar! Da können wir uns heute auf richtig leckere Plätzchen freuen.",
+        utterance: "Da können wir uns heute auf richtig leckere Plätzchen freuen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3496,6 +3572,7 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -3504,9 +3581,9 @@ export const stories = [
           `den Hund streichelt. Später kommt Tobi nach drinnen und läuft direkt in die Küche. ` +
           `Anna knetet gerade den Teig. Tobi geht zum Waschbecken und wäscht sich die Hände. ` +
           `Dann geht er zu Anna hin und sagt: „Mama, ich helfe Anna mit dem Teig.“ ` +
-          `Seine Mutter antwortet: „Klar! Da können wir uns heute auf richtig leckere Plätzchen freuen.“`,
+          `Seine Mutter antwortet: „Da können wir uns heute auf richtig leckere Plätzchen freuen.“`,
 
-        utterance: "Klar! Da können wir uns heute auf richtig leckere Plätzchen freuen.",
+        utterance: "Da können wir uns heute auf richtig leckere Plätzchen freuen.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3535,6 +3612,7 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -3542,9 +3620,9 @@ export const stories = [
           `in der Küche Plätzchen. Aus dem Fenster kann Tobis Mutter sehen, wie er ausgiebig ` +
           `den Hund streichelt. Später kommt Tobi nach drinnen und läuft direkt in die Küche. ` +
           `Anna knetet gerade den Teig. Tobi geht zu ihr hin und sagt: „Mama, ich helfe Anna mit dem Teig.“ ` +
-          `Seine Mutter antwortet: „Hast du nicht noch etwas vergessen, bevor du den Teig anfasst?“`,
+          `Seine Mutter antwortet: „Bevor du den Teig anfasst, denkst du erstmal drüber nach, was du vergessen hast!“`,
 
-        utterance: "Hast du nicht noch etwas vergessen, bevor du den Teig anfasst?",
+        utterance: "Bevor du den Teig anfasst, denkst du erstmal drüber nach, was du vergessen hast!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3571,6 +3649,7 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -3613,7 +3692,7 @@ export const stories = [
     level: 6,
     latinPosition: 1,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -3633,15 +3712,16 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
           `Annas Zimmer ist sehr unordentlich. Ihre Mutter kommt herein, um sie zum Abendessen ` +
           `zu holen. Nach dem Abendessen fragt Annas Bruder Tobi: „Darf ich jetzt fernsehen?“ ` +
           `Die Mutter sagt ja. Anna fragt: „Mama, darf ich auch fernsehen?“ Ihre Mutter antwortet: ` +
-          `„Natürlich! Es wäre toll, wenn alle Zimmer so aussehen würden wie deins.“`,
+          `„Klar doch! Es wäre toll, wenn alle Zimmer so aussehen würden wie deins.“`,
 
-        utterance: "Natürlich! Es wäre toll, wenn alle Zimmer so aussehen würden wie deins.",
+        utterance: "Klar doch! Es wäre toll, wenn alle Zimmer so aussehen würden wie deins.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3668,15 +3748,16 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Anna.jpg",
         condition: "praise",
 
         storyText:
           `Annas Zimmer ist wie immer sehr ordentlich. Ihre Mutter kommt herein, um sie zum Abendessen ` +
           `zu holen. Nach dem Abendessen fragt Annas Bruder Tobi: „Darf ich jetzt fernsehen?“ ` +
           `Die Mutter sagt ja. Anna fragt: „Mama, darf ich auch fernsehen?“ Ihre Mutter antwortet: ` +
-          `„Natürlich! Es wäre toll, wenn alle Zimmer so aussehen würden wie deins.“`,
+          `„Klar doch! Es wäre toll, wenn alle Zimmer so aussehen würden wie deins.“`,
 
-        utterance: "Natürlich! Es wäre toll, wenn alle Zimmer so aussehen würden wie deins.",
+        utterance: "Klar doch! Es wäre toll, wenn alle Zimmer so aussehen würden wie deins.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3705,15 +3786,16 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
           `Annas Zimmer ist sehr unordentlich. Ihre Mutter kommt herein, um sie zum Abendessen ` +
           `zu holen. Nach dem Abendessen fragt Annas Bruder Tobi: „Darf ich jetzt fernsehen?“ ` +
           `Die Mutter sagt ja. Anna fragt: „Mama, darf ich auch fernsehen?“ Ihre Mutter antwortet: ` +
-          `„Schau dir erstmal das Zimmer von deinem Bruder an.“`,
+          `„Schau dir erstmal das Zimmer von deinem Bruder an!“`,
 
-        utterance: "Schau dir erstmal das Zimmer von deinem Bruder an.",
+        utterance: "Schau dir erstmal das Zimmer von deinem Bruder an!",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -3740,6 +3822,7 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Anna.jpg",
         condition: "control",
 
         storyText:
@@ -3781,7 +3864,7 @@ export const stories = [
     level: 6,
     latinPosition: 2,
 
-    utteranceReminder: "Tobis Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -3801,26 +3884,27 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Marie.jpg",
         condition: "irony",
 
         storyText:
-          `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihr Bruder Tobi sind im ` +
-          `Wohnzimmer, direkt neben Annas Zimmer. Plötzlich fängt Tobi an, laut auf dem Keyboard ` +
-          `zu spielen. Seine Mutter sagt: „Das merke ich mir für das nächste Mal, wenn jemand schlafen möchte.“` ,
+          `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihre Schwester Marie sind im ` +
+          `Wohnzimmer, direkt neben Annas Zimmer. Plötzlich fängt Marie an, laut auf dem Keyboard ` +
+          `zu spielen. Ihre Mutter sagt: „Das ist eine super Idee, wenn jemand schlafen möchte.“` ,
 
-        utterance: "Das merke ich mir für das nächste Mal, wenn jemand schlafen möchte.",
+        utterance: "Das ist eine super Idee, wenn jemand schlafen möchte.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
               id: "boardgame",
-              text: "Tobi spielt mit seiner Mutter ein Brettspiel",
+              text: "Marie spielt mit ihrer Mutter ein Brettspiel",
               correct: true
             },
             {
               id: "play_keyboard",
-              text: "Tobi spielt weiter auf dem Keyboard",
+              text: "Marie spielt weiter auf dem Keyboard",
               correct: false
             }
           ]
@@ -3835,62 +3919,27 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Marie.jpg",
         condition: "praise",
 
         storyText:
-          `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihr Bruder Tobi sind im ` +
-          `Wohnzimmer, direkt neben Annas Zimmer. Tobi setzt Kopfhörer auf und fängt an, auf dem Keyboard ` +
-          `zu spielen. Seine Mutter sagt: „Das merke ich mir für das nächste Mal, wenn jemand schlafen möchte.“` ,
+          `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihre Schwester Marie sind im ` +
+          `Wohnzimmer, direkt neben Annas Zimmer. Plötzlich fängt Marie an, laut auf dem Keyboard ` +
+          `zu spielen. Ihre Mutter sagt: „Das ist eine super Idee, wenn jemand schlafen möchte.“` ,
 
-        utterance: "Das merke ich mir für das nächste Mal, wenn jemand schlafen möchte.",
-
-        nextQuestion: {
-          question: "Was passiert als Nächstes?",
-          options: [
-            {
-              id: "play_keyboard_headphones",
-              text:
-                "Tobi spielt weiter mit Kopfhörern auf seinem Keyboard",
-              correct: true
-            },
-            {
-              id: "boardgame",
-              text:
-                "Tobi spielt mit seiner Mutter ein Brettspiel",
-              correct: false
-            }
-          ]
-        },
-
-        correctEmotion: "happy",
-
-        situationLogic: {
-          correctAnswer: "quiet",
-          whyTrigger: "loud"
-        }
-      },
-
-      criticism: {
-        condition: "criticism",
-
-        storyText:
-          `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihr Bruder Tobi sind im ` +
-          `Wohnzimmer, direkt neben Annas Zimmer. Plötzlich fängt Tobi an, laut auf dem Keyboard ` +
-          `zu spielen. Seine Mutter sagt: „Das ist nicht gerade die beste Idee, wenn jemand schlafen möchte.“` ,
-
-        utterance: "Das ist nicht gerade die beste Idee, wenn jemand schlafen möchte.",
+        utterance: "Das ist eine super Idee, wenn jemand schlafen möchte.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
               id: "boardgame",
-              text: "Tobi spielt mit seiner Mutter ein Brettspiel",
+              text: "Marie spielt mit ihrer Mutter ein Brettspiel",
               correct: true
             },
             {
               id: "play_keyboard",
-              text: "Tobi spielt weiter auf dem Keyboard",
+              text: "Marie spielt weiter auf dem Keyboard",
               correct: false
             }
           ]
@@ -3900,42 +3949,76 @@ export const stories = [
 
         situationLogic: {
           correctAnswer: "loud",
-          whyTrigger: "quiet"
+          whyTrigger: "loud"
         }
       },
 
-      control: {
-        condition: "control",
+      criticism: {
+      childImage: "/Marie.jpg",
+        condition: "criticism",
 
         storyText:
-          `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihr Bruder Tobi sind im ` +
-          `Wohnzimmer, direkt neben Annas Zimmer. Plötzlich fängt Tobi an, laut auf dem Keyboard ` +
-          `zu spielen. Seine Mutter sagt: „Schön, dass du üben möchtest, aber deine Schwester will schlafen. Komm, ich hole ein Brettspiel.“` ,
+          `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihre Schwester Marie sind im ` +
+          `Wohnzimmer, direkt neben Annas Zimmer. Plötzlich fängt Marie an, laut auf dem Keyboard ` +
+          `zu spielen. Ihre Mutter sagt: „Das ist eine super Idee, wenn jemand schlafen möchte.“` ,
 
-        utterance:
-          "Schön, dass du üben möchtest, aber deine Schwester will schlafen. Komm, ich hole ein Brettspiel.",
+        utterance: "Das ist eine super Idee, wenn jemand schlafen möchte.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
           options: [
             {
               id: "boardgame",
-              text: "Tobi spielt mit seiner Mutter ein Brettspiel",
+              text: "Marie spielt mit ihrer Mutter ein Brettspiel",
               correct: true
             },
             {
               id: "play_keyboard",
-              text: "Tobi spielt weiter auf dem Keyboard",
+              text: "Marie spielt weiter auf dem Keyboard",
               correct: false
             }
           ]
         },
 
-        correctEmotion: "happy",
+        correctEmotion: "angry",
 
         situationLogic: {
           correctAnswer: "loud",
-          whyTrigger: "quiet"
+          whyTrigger: "loud"
+        }
+      },
+
+      control: {
+      childImage: "/Marie.jpg",
+        condition: "control",
+        storyText:
+          `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihre Schwester Marie sind im ` +
+          `Wohnzimmer, direkt neben Annas Zimmer. Plötzlich fängt Marie an, laut auf dem Keyboard ` +
+          `zu spielen. Ihre Mutter sagt: „Das ist eine super Idee, wenn jemand schlafen möchte.“` ,
+
+        utterance: "Das ist eine super Idee, wenn jemand schlafen möchte.",
+
+        nextQuestion: {
+          question: "Was passiert als Nächstes?",
+          options: [
+            {
+              id: "boardgame",
+              text: "Marie spielt mit ihrer Mutter ein Brettspiel",
+              correct: true
+            },
+            {
+              id: "play_keyboard",
+              text: "Marie spielt weiter auf dem Keyboard",
+              correct: false
+            }
+          ]
+        },
+
+        correctEmotion: "angry",
+
+        situationLogic: {
+          correctAnswer: "loud",
+          whyTrigger: "loud"
         }
       }
     }
@@ -3945,7 +4028,7 @@ export const stories = [
     level: 6,
     latinPosition: 3,
 
-    utteranceReminder: "Annas Mutter sagt:",
+    utteranceReminder: "Die Mutter sagt:",
 
     situationQuestion: {
         question:
@@ -3965,6 +4048,7 @@ export const stories = [
 
     versions: {
       irony: {
+      childImage: "/Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -4000,6 +4084,7 @@ export const stories = [
       },
 
       praise: {
+      childImage: "/Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -4038,15 +4123,16 @@ export const stories = [
       },
 
       criticism: {
+      childImage: "/Anna.jpg",
         condition: "criticism",
 
         storyText:
           `Draußen regnet es. Anna kommt klatschnass nach Hause und hinterlässt Wasserpfützen auf dem Boden. ` +
           `Ihre nasse Jacke lässt sie einfach auf den Boden fallen, bevor sie in ihr Zimmer geht. Später kommt sie ` +
           `in die Küche, wo ihre Mutter gerade kocht. Anna sagt: „Mama, Oma kommt doch bald, oder?“ Ihre Mutter ` +
-          `antwortet: „Ja. Und wegen dir gibt es davor noch einiges zu tun.“`,
+          `antwortet: „Ja. Und wegen dir haben wir davor noch einiges zu tun.“`,
 
-        utterance: "Ja. Und wegen dir gibt es davor noch einiges zu tun.",
+        utterance: "Ja. Und wegen dir haben wir davor noch einiges zu tun.",
 
         nextQuestion: {
           question: "Was passiert als Nächstes?",
@@ -4073,12 +4159,13 @@ export const stories = [
       },
 
       control: {
+      childImage: "/Marie.jpg",
         condition: "control",
 
         storyText:
-          `Draußen regnet es. Anna kommt klatschnass nach Hause und hinterlässt Wasserpfützen auf dem Boden. ` +
+          `Draußen regnet es. Marie kommt klatschnass nach drinnen und hinterlässt Wasserpfützen auf dem Boden. ` +
           `Ihre nasse Jacke lässt sie einfach auf den Boden fallen, bevor sie in ihr Zimmer geht. Später kommt sie ` +
-          `in die Küche, wo ihre Mutter gerade kocht. Anna sagt: „Mama, Oma kommt doch bald, oder?“ Ihre Mutter ` +
+          `in die Küche, wo ihre Mutter gerade kocht. Marie sagt: „Mama, Oma kommt doch bald, oder?“ Ihre Mutter ` +
           `antwortet: „Ja. Lass uns davor noch den Boden trockenwischen, damit Oma nicht ausrutscht.“`,
 
         utterance:
@@ -4088,13 +4175,13 @@ export const stories = [
           question: "Was passiert als Nächstes?",
           options: [
             {
-              id: "mop_floor_together",
-              text: "Anna und ihre Mutter wischen den Boden im Gang auf",
+              id: "mop_floor_together_marie",
+              text: "Marie und ihre Mutter wischen den Boden im Gang auf",
               correct: true
             },
             {
-              id: "sit_down",
-              text: "Anna setzt sich an den Esstisch",
+              id: "sit_down_marie",
+              text: "Marie setzt sich an den Esstisch",
               correct: false
             }
           ]

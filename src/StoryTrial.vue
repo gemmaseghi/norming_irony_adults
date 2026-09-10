@@ -1,10 +1,16 @@
 <template>
   <div class="story-trial">
     <h2 class="story-progress">Geschichte {{ trial.trialNumber }}/{{ totalStories }}</h2>
-    <div class="story-box">
-      <p>
-        {{ trial.storyText }}
-      </p>
+    <div class="story-container">
+      <div class="story-box">
+        <p>
+          {{ trial.storyText }}
+        </p>
+      </div>
+
+      <div class="child-image">
+        <img :src="trial.childImage" alt="">
+      </div>
     </div>
     <div ref="questionPanel" class="question-panel">
       <p
@@ -119,7 +125,7 @@
       class="question-block"
     >
       <p id="question-5" class="question-text">
-        {{ commonQuestions.difficulty.question }}
+        {{ commonQuestions.difficulty.question(childAge) }}
       </p>
       <div class="slider-container">
         <input
@@ -149,7 +155,7 @@
       class="question-block"
     >
       <p id="question-6" class="question-text">
-        {{ commonQuestions.likelihood.question }}
+        {{ commonQuestions.likelihood.question(childAge) }}
       </p>
       <div class="slider-container">
         <input
@@ -228,6 +234,9 @@ export default {
     return { commonQuestions, ...initialState(this.trial) };
   },
   computed: {
+    childAge() {
+      return this.trial.childImage === "/Marie.jpg" ? 5 : 12;
+    },
     completeUtteranceReminder() {
       return `${this.trial.utteranceReminder} „${this.trial.utterance}“`;
     },
@@ -380,16 +389,31 @@ export default {
   opacity: 0.45;
   cursor: not-allowed;
 }
+.story-container {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+}
 .story-box {
   box-sizing: border-box;
-  flex: 0 0 auto;
-  max-height: 45%;
-  overflow-y: auto;
+  flex: 1;
   background: white;
   margin-bottom: 16px;
   padding: 22px 26px;
   border: 1px solid #d0d0d0;
   border-radius: 6px;
+}
+.child-image {
+  width: 130px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.child-image img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .story-box p {
   margin: 0;
