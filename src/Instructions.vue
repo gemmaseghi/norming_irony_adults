@@ -52,17 +52,17 @@ export default {
 
             <div class="instruction-images">
               <div class="instruction-image">
-                <img src="/Anna.jpg" alt="Anna">
+                <img src="./Anna.jpg" alt="Anna">
                 <div class="image-caption">Anna (12 Jahre)</div>
               </div>
 
               <div class="instruction-image">
-                <img src="/Tobi.jpg" alt="Tobi">
+                <img src="./Tobi.jpg" alt="Tobi">
                 <div class="image-caption">Tobi (12 Jahre)</div>
               </div>
 
               <div class="instruction-image">
-                <img src="/Marie.jpg" alt="Marie">
+                <img src="./Marie.jpg" alt="Marie">
                 <div class="image-caption">Marie (5 Jahre)</div>
               </div>
             </div>

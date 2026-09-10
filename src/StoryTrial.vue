@@ -235,7 +235,7 @@ export default {
   },
   computed: {
     childAge() {
-      return this.trial.childImage === "/Marie.jpg" ? 5 : 12;
+      return this.trial.childImage === "./Marie.jpg" ? 5 : 12;
     },
     completeUtteranceReminder() {
       return `${this.trial.utteranceReminder} „${this.trial.utterance}“`;
