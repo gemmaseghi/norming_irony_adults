@@ -71,7 +71,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -108,7 +108,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -148,7 +148,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "criticism",
 
         storyText:
@@ -186,7 +186,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -250,7 +250,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -287,7 +287,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -326,7 +326,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -363,7 +363,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -426,7 +426,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -462,7 +462,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -500,7 +500,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -536,7 +536,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -598,7 +598,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -636,7 +636,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -676,7 +676,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "criticism",
 
         storyText:
@@ -714,7 +714,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -779,7 +779,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -817,7 +817,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -857,7 +857,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -895,7 +895,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -959,7 +959,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -997,7 +997,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -1036,7 +1036,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "criticism",
 
         storyText:
@@ -1073,7 +1073,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -1137,7 +1137,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -1173,7 +1173,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -1211,7 +1211,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -1247,7 +1247,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -1310,7 +1310,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -1347,7 +1347,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -1386,7 +1386,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -1423,7 +1423,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -1486,7 +1486,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -1521,7 +1521,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -1558,7 +1558,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -1593,7 +1593,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -1654,7 +1654,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -1689,7 +1689,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -1726,7 +1726,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -1761,7 +1761,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -1822,7 +1822,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -1858,7 +1858,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -1896,7 +1896,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -1932,7 +1932,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -1994,7 +1994,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -2029,7 +2029,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -2066,7 +2066,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "criticism",
 
         storyText:
@@ -2101,7 +2101,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "control",
 
         storyText:
@@ -2162,7 +2162,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "irony",
 
         storyText:
@@ -2198,7 +2198,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -2234,7 +2234,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "criticism",
 
         storyText:
@@ -2270,7 +2270,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "control",
 
         storyText:
@@ -2331,7 +2331,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -2366,7 +2366,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -2403,7 +2403,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -2438,7 +2438,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "control",
 
         storyText:
@@ -2499,7 +2499,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -2534,7 +2534,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -2571,7 +2571,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -2606,7 +2606,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -2667,7 +2667,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -2702,7 +2702,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -2739,7 +2739,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -2774,7 +2774,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -2835,7 +2835,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -2871,7 +2871,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -2909,7 +2909,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -2945,7 +2945,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -3007,7 +3007,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -3044,7 +3044,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -3083,7 +3083,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -3120,7 +3120,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -3183,7 +3183,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -3220,7 +3220,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -3259,7 +3259,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -3296,7 +3296,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "control",
 
         storyText:
@@ -3359,7 +3359,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -3396,7 +3396,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -3435,7 +3435,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -3472,7 +3472,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -3535,7 +3535,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "irony",
 
         storyText:
@@ -3572,7 +3572,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "praise",
 
         storyText:
@@ -3612,7 +3612,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "criticism",
 
         storyText:
@@ -3649,7 +3649,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Tobi.jpg",
+      childImage: "./Tobi.jpg",
         condition: "control",
 
         storyText:
@@ -3712,7 +3712,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -3748,7 +3748,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -3786,7 +3786,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -3822,7 +3822,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "control",
 
         storyText:
@@ -3884,7 +3884,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "irony",
 
         storyText:
@@ -3919,7 +3919,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "praise",
 
         storyText:
@@ -3954,7 +3954,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "criticism",
 
         storyText:
@@ -3989,7 +3989,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "control",
         storyText:
           `Anna ist krank und geht deshalb früh ins Bett. Ihre Mutter und ihre Schwester Marie sind im ` +
@@ -4048,7 +4048,7 @@ export const stories = [
 
     versions: {
       irony: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "irony",
 
         storyText:
@@ -4084,7 +4084,7 @@ export const stories = [
       },
 
       praise: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "praise",
 
         storyText:
@@ -4123,7 +4123,7 @@ export const stories = [
       },
 
       criticism: {
-      childImage: "/Anna.jpg",
+      childImage: "./Anna.jpg",
         condition: "criticism",
 
         storyText:
@@ -4159,7 +4159,7 @@ export const stories = [
       },
 
       control: {
-      childImage: "/Marie.jpg",
+      childImage: "./Marie.jpg",
         condition: "control",
 
         storyText:
